@@ -154,6 +154,56 @@ li {
     background-color: #e0e0e0;
 }
 
+/* Collaboration Dropdown */
+.navigation li.dropdown {
+    position: relative;
+}
+
+.navigation .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+
+    min-width: 300px;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Show dropdown when mouse hovers over Collaboration */
+.navigation li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navigation .dropdown-menu li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation .dropdown-menu li a {
+    display: block;
+    padding: 10px 18px;
+    white-space: nowrap;
+
+    font-size: 0.9em;
+    color: var(--text-color);
+    background-color: #ffffff;
+    border-radius: 0;
+    text-align: left;
+}
+
+.navigation .dropdown-menu li a:hover {
+    background-color: #e0e0e0;
+    color: var(--link-hover-color);
+}
+
 /* Main Content Specifics */
 .center-text { text-align: center; }
 
