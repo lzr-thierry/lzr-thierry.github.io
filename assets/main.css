@@ -159,48 +159,52 @@ li {
     position: relative;
 }
 
-.navigation .dropdown-menu {
+/* Hide dropdown by default */
+.navigation ul.dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 1000;
 
-    min-width: 300px;
+    min-width: 320px;
     margin: 0;
     padding: 0;
 
     list-style: none;
-    background-color: #ffffff;
-    border-radius: 5px;
+    background: #ffffff;
+    border-radius: 0 0 5px 5px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+
+    flex-direction: column;
 }
 
-/* Show dropdown when mouse hovers over Collaboration */
-.navigation li.dropdown:hover .dropdown-menu {
+/* Only show when hovering over Collaboration */
+.navigation li.dropdown:hover > ul.dropdown-menu {
     display: block;
 }
 
-.navigation .dropdown-menu li {
+.navigation ul.dropdown-menu li {
     display: block;
+    width: 100%;
     margin: 0;
     padding: 0;
 }
 
-.navigation .dropdown-menu li a {
+.navigation ul.dropdown-menu li a {
     display: block;
     padding: 10px 18px;
     white-space: nowrap;
+    text-align: left;
 
     font-size: 0.9em;
     color: var(--text-color);
-    background-color: #ffffff;
+    background: #ffffff;
     border-radius: 0;
-    text-align: left;
 }
 
-.navigation .dropdown-menu li a:hover {
-    background-color: #e0e0e0;
+.navigation ul.dropdown-menu li a:hover {
+    background: #e0e0e0;
     color: var(--link-hover-color);
 }
 
