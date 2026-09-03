@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href=".">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../assets/main.css"/>
+    <meta name="description" content="Call for Abstracts for the Second SSCI Annual Combustion Meeting">
+    <meta name="KeyWords" content="SSCI, Annual Meeting, Call for Abstracts, Combustion, Singapore">
+    <title>Call for Abstracts | Second SSCI Annual Combustion Meeting</title>
+
+    <style>
+        :root {
+            --primarycolor: #005b96; /* Deep navy */
+            --highlightcolor: var(--primary-color);
+        }
+
+        /* --- ORIGINAL STYLES --- */
+
+        .meeting-title-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .meeting-title-container h1 {
+            color: var(--primary-color);
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 0.3em 0 0.3em 0;
+        }
+
+        .meeting-title-container h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .meeting-content {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+            text-align: left;
+        }
+
+        .meeting-content p {
+            margin-bottom: 1em;
+            line-height: 1.6;
+        }
+
+        .meeting-content h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .meeting-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 1em;
+        }
+
+        .meeting-content li {
+            margin-bottom: 0.5em;
+        }
+
+        .meeting-content .large-bold {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--highlightcolor);
+        }
+
+        .venue-link {
+            background-color: #eef7ff;
+            padding: 4px 10px;
+            border-radius: 6px;
+            border: 1px solid #cce5ff;
+            text-decoration: none !important;
+            font-weight: bold;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .venue-link:hover {
+            background-color: #dbefff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: var(--link-hover-color);
+        }
+
+        .venue-link::before {
+            content: '📍';
+            margin-right: 7px;
+            font-size: 1.1em;
+        }
+
+        /* Styles for Invited Speaker Gallery */
+        .speaker-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* MODIFIED SPEAKER CARD FOR INTERACTION */
+        .speaker-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            width: calc(33.333% - 20px);
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer; /* Indicates clickable */
+            position: relative;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        /* "Click to View" Badge on Hover */
+        .speaker-card::after {
+            content: 'View Abstract & Biography';
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .speaker-card:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .speaker-card img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #eef7ff;
+        }
+
+        .speaker-card h4 {
+            margin: 0 0 5px 0;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        .speaker-card .affiliation {
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            margin: 0 0 10px 0;
+            flex-grow: 1;
+        }
+
+        .speaker-card .talk-title {
+            font-size: 0.95em;
+            color: #813c54;
+            margin: 0;
+            font-weight: bold;
+            line-height: 1.3;
+            margin-bottom: 10px; /* Space for the badge */
+        }
+
+        /* Helper to hide raw data inside card */
+        .speaker-hidden-details {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .speaker-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .speaker-card {
+                width: 100%;
+            }
+        }
+
+        /* Registration Section */
+        .registration-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #eef7ff 100%);
+            border-radius: 12px;
+            padding: 30px 20px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 1px solid #cce5ff;
+        }
+
+        .registration-section h3 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .registration-section .pricing-info {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .registration-section .pricing-info strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .single-register-button {
+            background-color: #e57373;
+            color: white;
+            padding: 16px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(229, 115, 115, 0.4);
+        }
+
+        .single-register-button:hover {
+            background-color: #d32f2f;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(211, 47, 47, 0.5);
+        }
+
+        /* --- MODAL STYLES --- */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 40px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            animation: modalFadeIn 0.3s ease-out;
+            border-top: 6px solid var(--primary-color);
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: scale(0.95);}
+            to {opacity: 1; transform: scale(1);}
+        }
+
+        .close-modal-btn {
+            color: #aaa;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+            line-height: 1;
+        }
+
+        .close-modal-btn:hover {
+            color: #d32f2f;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+            font-size: 2rem;
+        }
+
+        .modal-header .modal-affiliation {
+            font-style: italic;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        .modal-body h4 {
+            color: #813c54;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+            border-left: 5px solid #813c54;
+            padding-left: 12px;
+        }
+
+        .modal-body p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 0.8em;
+            color: #333;
+        }
+
+        .modal-title-text {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #000;
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        /* --- NEW PROGRAMME DOWNLOAD BUTTON --- */
+        .programme-download-btn {
+            background-color: var(--primary-color); /* Matches your deep navy */
+            color: #ffffff;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between icon and text */
+            box-shadow: 0 4px 15px rgba(0, 91, 150, 0.3);
+            transition: all 0.3s ease;
+            border: 2px solid var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        .programme-download-btn:hover {
+            background-color: #ffffff;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 91, 150, 0.4);
+        }
+
+        /* Icon Animation on hover */
+        .programme-download-btn:hover span {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-5px);}
+            60% {transform: translateY(-3px);}
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div id="site-header"></div>
+
+    <div id="site-nav"></div>
+
+    <main class="meeting-content">
+
+        <div class="meeting-title-container">
+            <h1>Call for Abstracts</h1>
+            <h2>Second SSCI Annual Combustion Meeting</h2>
+        </div>
+
+        <p>
+            The Singapore Section of the Combustion Institute (SSCI) is delighted to announce the <strong>2nd SSCI Annual Combustion Meeting</strong>, to be held on <strong>16 November 2026</strong> at
+            <a href="2nd-ssci-annual-meeting-venue.html" class="venue-link" title="Click for location and transport guide" target="_blank"> Level 2 Theatrette, CREATE Tower, 1 Create Way, Singapore, 138602</a>.
+        </p>
+
+        <p>
+            Following the highly successful inaugural meeting, the second annual meeting will serve as a forum for researchers, practitioners, and students from academia, industry, and government to present recent
+            advances in combustion research, exchange ideas, and establish new collaborations. Under the theme <strong>“Future Combustion: Science, Innovation and Sustainability”</strong>, the program will feature technical oral presentations
+            together with a poster session showcasing emerging research and innovations.
+        </p>
+
+        <section>
+            <h3>Topics of Interest</h3>
+            <p>We invite the submission of abstracts for consideration for oral or poster presentations in all areas of combustion science, including but not limited to:</p>
+            <ul>
+                <li><strong>Fundamental Combustion Science</strong> — chemical kinetics, flame dynamics, turbulent combustion, combustion instabilities, diagnostics</li>
+                <li><strong>Advanced Combustion Technologies</strong> — engines, gas turbines, industrial combustion, propulsion systems, novel combustion concepts</li>
+                <li><strong>Sustainable and Low-Carbon Combustion</strong> — hydrogen, ammonia, sustainable aviation fuels, bio-fuels, e-fuels, carbon-neutral combustion</li>
+                <li><strong>Combustion Modelling, Simulation, and Control</strong> — CFD, reacting flow modelling, combustion control, AI/data-driven methods, digital twins</li>
+                <li><strong>Emissions, Fire, and Energy Systems</strong> — pollutant formation and mitigation, fire safety, battery fires, carbon capture, integrated energy systems</li>
+            </ul>
+        </section>
+
+
+<!--        <section>-->
+<!--            <h3>Programme</h3>-->
+
+<!--            &lt;!&ndash; NEW DOWNLOAD BUTTON &ndash;&gt;-->
+<!--            <div style="text-align: center;">-->
+<!--                <a href="../documents/2nd SSCI Annual Combustion Meeting Programme.pdf" target="_blank" class="programme-download-btn">Download Full Programme (PDF)</a>-->
+<!--            </div>-->
+
+<!--            <p class="center-text">-->
+<!--            <img src="../documents/SSCI_AnnualMtg - 20251118 - 1.png" style="width: 900px; max-width:100%;"/>-->
+<!--            </p>-->
+<!--            <p class="center-text">-->
+<!--            <img src="../documents/SSCI_AnnualMtg - 20251118 - 2.png" style="width: 900px; max-width:100%;"/>-->
+<!--            </p>-->
+<!--        </section>-->
+
+<!--        <section>-->
+<!--            <h3>Posters</h3>-->
+<!--            <p class="center-text">-->
+<!--            <img src="../documents/SSCI_posters - 1.png" style="width: 900px; max-width:100%;"/>-->
+<!--            </p>-->
+<!--            <p class="center-text">-->
+<!--            <img src="../documents/SSCI_posters - 2.png" style="width: 900px; max-width:100%;"/>-->
+<!--            </p>-->
+<!--        </section>-->
+
+        <section>
+            <h3>Presentation Instructions</h3>
+
+            <p><strong>Oral Presentations</strong></p>
+            <ul>
+                <li>We recommend using a <strong>16:9</strong> aspect ratio for your presentation slides (<strong>PPT or PDF</strong>).</li>
+            </ul>
+
+            <p><strong>Poster Presentations</strong></p>
+            <ul>
+                <li>The required poster size is <strong>A0</strong>.</li>
+                <li>The organizers will handle poster printing. Please send the <strong>PDF version</strong> of your poster to <a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a>.</li>
+            </ul>
+        </section>
+
+        <!-- KEYNOTE SPEAKERS -->
+        <section>
+            <h3>Keynote Speakers</h3>
+            <div class="speaker-gallery">
+                <div class="speaker-card">
+                    <img src="../documents/speakers-photo/Prof. Yiguang Ju.png" alt="Photo of Prof. Yiguang Ju">
+                    <h4>Prof. Yiguang Ju</h4>
+                    <p class="affiliation">Princeton University</p>
+                    <p class="talk-title">Challenges and opportunities of ammonia combustion for power generation</p>
+                    <div class="speaker-hidden-details">
+                        <div class="hidden-abstract">
+                            <p>Ammonia is a potential hydrogen carrier for power generation because of its higher energy density and easier storage and transportation. However, ammonia slips, high NOx/N2O emissions, and fast metal surface nitridation have made it challenging in direct applications to existing gas turbine and diesel engine applications.</p>
+                            <p>In this lecture, we will first discuss the potential impact of ammonia combustion on emissions, climate, and metal surface nitridation. Then, we will present the results of NOx/N2O of high pressure (100 atm) low temperature oxidation. The three important low temperature ammonia oxidation kinetic pathways and its impact on warm flames and detonation transition will be presented.</p>
+                            <p>After that, direct measurements of critical radicals such as NHx/HO2 in ammonia combustion using Faraday rotational spectroscopy and femtosecond laser absorption will be discussed. The data will be used to determine the rates of important elementary reactions such as HO2+NH2 and examine the metal surface nitridation mechanism.</p>
+                            <p>Finally, a new concept of high pressure fully premixed turbulent jet stirred ammonia combustion will be presented. The potential of plasma assisted ammonia combustion for low NOx emissions will also be discussed.</p>
+                        </div>
+                        <div class="hidden-bio">
+                            <p>Yiguang Ju is the Robert Porter Patterson Professor in Mechanical and Aerospace Engineering, Associated Faculty of Princeton Plasma Physics Laboratory, and is the Director of DOE Energy Earthshot Research Center (EERC) for plasma assisted hydrogen production.</p>
+                            <p>Ju’s research interests include combustion, green fuels, plasma, and electrified manufacturing. Ju is a Fellow of The American Institute of Aeronautics and Astronautics (AIAA), The American Society of Mechanical Engineers (ASME), and The Combustion Institute.</p>
+                            <p>He has received many awards such as the Friedrich Wilhelm Bessel Research Award from the Alexander von Humboldt Foundation, the AIAA propellant and combustion award, the Alfred C. Egerton Gold Medal from the Combustion Institute, the 2025 and 2026 R&amp;D 100 Awards by R&amp;D World magazine, and the international award from Tohoku University (2026).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INVITED SPEAKERS: add future speakers here alphabetically by surname -->
+        <section>
+            <h3>Invited Speakers</h3>
+            <div class="speaker-gallery">
+                <!-- Invited speakers will be added here. -->
+            </div>
+        </section>
+
+        <section class="registration-section">
+            <h3>Registration is Now Open!</h3>
+            <p class="pricing-info">
+                Registration Fee: <strong>SGD 120</strong> for SSCI members and <strong>SGD 150</strong> for non-members.
+                <br>
+                Click the button below to complete your registration and payment.
+            </p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdtP4uZG_HqbikYq0L-OLhZsg1erVN_QBYP9pdxe8dy3eVj6A/viewform?usp=publish-editor" target="_blank" class="single-register-button">Register Now</a>
+        </section>
+
+        <section>
+            <h3>Submission Guidelines</h3>
+            <p>Authors are invited to submit a <strong>one page extended abstract with 1-2 figures included</strong> to the official SSCI email.
+                In your submission email, please indicate your preference for an oral or poster presentation.
+            </p>
+            <p class="center-text">
+                <a href="../documents/SSCI_2nd_annual_meeting_abstract_template.docx" target="_blank" class="button-link">Download Abstract Template (Docx)</a>
+            </p>
+
+            <ul>
+                <li><strong class="large-bold">Submission deadline: 16 October 2026</strong></li>
+                <li><strong class="large-bold">Submit to: <a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a></strong></li>
+            </ul>
+        </section>
+
+        <br>
+        <strong>Organizers:</strong><br>
+        Prof. Huangwei Zhang (NUS)<br>
+        Dr. Yichen Zong (CARES)<br>
+        Dr. Wai Lee Chan (SUTD)<br>
+        <br>
+        <strong>Secretaries:</strong><br>
+        Dr. Tong Su (CARES)<br>
+        Dr. Victor Lafaurie (CARES)
+
+    </main>
+
+    <div id="site-footer"></div>
+
+    <!-- SPEAKER MODAL STRUCTURE -->
+    <div id="speakerModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-btn">&times;</span>
+
+            <div class="modal-header">
+                <h2 id="modalName">Speaker Name</h2>
+                <p id="modalAffiliation" class="modal-affiliation">Affiliation</p>
+            </div>
+
+            <div class="modal-body">
+                <h4>Talk Title</h4>
+                <div id="modalTitle" class="modal-title-text">The Title</div>
+
+                <h4>Abstract</h4>
+                <div id="modalAbstract">
+                    <!-- Abstract text injected via JS -->
+                </div>
+
+                <h4>Biography</h4>
+                <div id="modalBio">
+                    <!-- Bio text injected via JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR MODAL INTERACTION -->
+    <script>
+        // Get DOM elements
+        const modal = document.getElementById('speakerModal');
+        const closeBtn = document.querySelector('.close-modal-btn');
+        const cards = document.querySelectorAll('.speaker-card');
+
+        // Elements to fill inside the modal
+        const modalName = document.getElementById('modalName');
+        const modalAffiliation = document.getElementById('modalAffiliation');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalAbstract = document.getElementById('modalAbstract');
+        const modalBio = document.getElementById('modalBio');
+
+        // Add click event to each speaker card
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // 1. Get data from the visible card
+                const name = card.querySelector('h4').innerText;
+                const affiliation = card.querySelector('.affiliation').innerText;
+                const title = card.querySelector('.talk-title').innerText;
+
+                // 2. Get data from the hidden details div
+                const hiddenDetails = card.querySelector('.speaker-hidden-details');
+
+                // Default messages if no content is pasted yet
+                let abstractHTML = "<p>Abstract details coming soon.</p>";
+                let bioHTML = "<p>Biography details coming soon.</p>";
+
+                if (hiddenDetails) {
+                    const absDiv = hiddenDetails.querySelector('.hidden-abstract');
+                    const bioDiv = hiddenDetails.querySelector('.hidden-bio');
+                    if (absDiv) abstractHTML = absDiv.innerHTML;
+                    if (bioDiv) bioHTML = bioDiv.innerHTML;
+                }
+
+                // 3. Populate the modal
+                modalName.innerText = name;
+                modalAffiliation.innerText = affiliation;
+                modalTitle.innerText = title;
+                modalAbstract.innerHTML = abstractHTML;
+                modalBio.innerHTML = bioHTML;
+
+                // 4. Show the modal
+                modal.style.display = 'flex';
+
+                // Prevent background scrolling
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // Close Modal Function
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        // Event Listeners for closing
+        closeBtn.addEventListener('click', closeModal);
+
+        // Close if user clicks outside the white box
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+    </script>
+
+<script src="../assets/site.js"></script>
+
+</body>
+</html>
