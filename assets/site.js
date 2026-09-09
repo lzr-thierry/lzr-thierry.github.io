@@ -96,7 +96,28 @@
                         Membership
                     </a>
                 </li>
-
+                
+                <li class="dropdown">
+                
+                    <a
+                        href="javascript:void(0);"
+                        data-page="award"
+                    >
+                        Award
+                    </a>
+                
+                    <ul class="dropdown-menu">
+                
+                        <li>
+                            <a href="${root}young-investigator-award.html">
+                                Young Investigator Award
+                            </a>
+                        </li>
+                
+                    </ul>
+                
+                </li>
+                
                 <li class="dropdown">
 
                     <a
@@ -185,6 +206,10 @@
     } else if (path.includes("membership.html")) {
 
         currentPage = "membership";
+
+    } else if (path.includes("young-investigator-award.html")) {
+
+        currentPage = "award";
 
     } else if (path.includes("collaboration.html")) {
 
