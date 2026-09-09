@@ -136,12 +136,12 @@ li {
     padding: 0;
 }
 .navigation li {
-    margin: 0.5em 1em;
+    margin: 0.5em 0.6em;
 }
 .navigation a {
     font-family: 'Roboto Slab', serif;
-    font-size: 1.2em;
-    padding: 0.5em 1.0em;
+    font-size: 1em;
+    padding: 0.5em 0.8em;
     border-radius: 5px;
     transition: background-color 0.3s;
     text-decoration: none;
