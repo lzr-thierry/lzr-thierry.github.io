@@ -39,7 +39,7 @@
         }
 
         .meeting-content {
-            max-width: 960px;
+            max-width: 1080px;
             margin: 20px auto;
             padding: 0 20px;
             text-align: left;
@@ -99,7 +99,7 @@
         .speaker-gallery {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 16px;
             justify-content: center;
             margin-top: 20px;
         }
@@ -118,7 +118,7 @@
             background-color: #f9f9f9;
             border: 1px solid #ddd;
             border-radius: 8px;
-            width: calc(33.333% - 20px);
+            width: calc(33.333% - 12px);
             text-align: center;
             padding: 15px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -172,6 +172,11 @@
             margin: 0 0 5px 0;
             font-size: 1.1em;
             color: var(--primary-color);
+        }
+
+        /* Keep Mr. Huang Hongdou on one line without changing other speaker cards */
+        .speaker-card h4.huang-name {
+            white-space: nowrap;
         }
 
         .speaker-card .affiliation {
@@ -655,7 +660,7 @@
 
 <div class="speaker-card">
                     <img src="../documents/speakers-photo/Huang Hongdou.jpg" alt="Photo of Huang Hongdou">
-                    <h4>Huang Hongdou</h4>
+                    <h4 class="huang-name">Mr. Huang Hongdou</h4>
                     <p class="affiliation">Baker Hughes</p>
                     <p class="talk-title">From Combustion Innovation to Commercial Deployment: Market Perspectives on Hydrogen and Ammonia Gas Turbines</p>
                     <div class="speaker-hidden-details">
