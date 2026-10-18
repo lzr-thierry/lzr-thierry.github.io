@@ -158,7 +158,7 @@
         <footer>
             <p>&copy; Singapore Section of the Combustion Institute</p>
             <p>Registered with the Registry of Societies, Singapore | UEN: T24SS0098C</p>
-            <p>Registered address: 19 Woodlands Drive 72, #08-49, Woodsvale, Singapore 738098</p>
+            <p>Registered address: 1 Create Way, #05-05, University Town (CREATE), Singapore 138602</p>
             <p>Official website: <a href="https://www.ssci-combustion.org/">ssci-combustion.org</a> | Contact: <a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a></p>
             <p>This domain is owned and operated by the Singapore Section of the Combustion Institute.</p>
         </footer>
