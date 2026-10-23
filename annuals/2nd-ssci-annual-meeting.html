@@ -201,6 +201,10 @@
             margin-bottom: 10px; /* Space for the badge */
         }
 
+        /* Guest of Honour has biography only */
+        .guest-speaker-card::after { content: 'View Biography'; }
+        .guest-speaker-card .affiliation { height: auto; min-height: 0; margin-bottom: 8px; }
+
         /* Helper to hide raw data inside card */
         .speaker-hidden-details {
             display: none;
@@ -512,6 +516,21 @@
                 <li>The required poster size is <strong>A0</strong>.</li>
                 <li>The organizers will handle poster printing. Please send the <strong>PDF version</strong> of your poster to <a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a>.</li>
             </ul>
+        </section>
+
+        <!-- Guest of Honour and Opening Speaker -->
+        <section class="guest-of-honour-section">
+            <h3>Guest of Honour and Opening Speaker</h3>
+            <div class="speaker-gallery">
+                <div class="speaker-card guest-speaker-card" data-bio-only="true">
+                    <img src="../documents/speakers-photo/John Chen.png" alt="Photo of Mr. John Chen">
+                    <h4>Mr. John Chen</h4>
+                    <p class="affiliation">AEDO</p>
+                    <div class="speaker-hidden-details">
+                        <div class="hidden-bio"><p>John Chen leads AEDO’s R&amp;D team, which assesses R&amp;D proposals in the TRL 1–6 range for funding and actively manages funded projects to ensure they deliver technical progress with clear pathways to scale and commercialisation. He also oversees partnership-building efforts across industry, from local facility owners and equipment manufacturers to startups and venture capitalists.</p><p>John concurrently serves on the Boards of the Centre for Hydrogen and Carbon Innovations (CHCI), Energy Research Institute at NTU (ERI@N), and Solar Energy Research Institute of Singapore (SERIS).</p><p>Prior to AEDO, John spent over a decade in policy roles at METI, most recently at the intersection of climate and economic policy. He holds a Chemical Engineering degree from the National University of Singapore and an MBA from Nanyang Technological University.</p></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- SPEAKERS -->
@@ -915,7 +934,8 @@
                 // 1. Get data from the visible card
                 const name = card.querySelector('h4').innerText;
                 const affiliation = card.querySelector('.affiliation').innerText;
-                const title = card.querySelector('.talk-title').innerText;
+                const titleElement = card.querySelector('.talk-title');
+                const title = titleElement ? titleElement.innerText : '';
 
                 // 2. Get data from the hidden details div
                 const hiddenDetails = card.querySelector('.speaker-hidden-details');
@@ -935,7 +955,12 @@
                 modalName.innerText = name;
                 modalAffiliation.innerText = affiliation;
                 modalTitle.innerText = title;
-                modalAbstract.innerHTML = abstractHTML;
+                const bioOnly = card.dataset.bioOnly === 'true';
+                modalTitle.previousElementSibling.style.display = bioOnly ? 'none' : '';
+                modalTitle.style.display = bioOnly ? 'none' : '';
+                modalAbstract.previousElementSibling.style.display = bioOnly ? 'none' : '';
+                modalAbstract.style.display = bioOnly ? 'none' : '';
+                if (!bioOnly) modalAbstract.innerHTML = abstractHTML;
                 modalBio.innerHTML = bioHTML;
 
                 // 4. Show the modal
