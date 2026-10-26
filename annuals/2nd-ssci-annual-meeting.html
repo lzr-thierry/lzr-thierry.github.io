@@ -418,6 +418,11 @@
             border-radius: 12px;
         }
         .sponsor-section h3 { margin-top: 0; }
+        .sponsor-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: flex-start; }
+        .sponsor-item { flex: 1 1 280px; max-width: 420px; display: flex; flex-direction: column; align-items: center; }
+        .sponsor-item .sponsor-logo { width: 240px; max-width: 100%; height: 160px; object-fit: contain; margin: 8px auto 14px; }
+        .sponsor-item > a:first-child .sponsor-logo { display: block; }
+
         .sponsor-logo {
             width: 150px;
             max-width: 80%;
@@ -428,10 +433,12 @@
         .sponsor-section p { max-width: 760px; margin: 0 auto 18px; }
         .sponsor-pdf-link {
             display: inline-block;
+            font-size: 0.85em;
+            line-height: 1.3;
             background-color: var(--primary-color);
             color: #fff !important;
-            padding: 11px 22px;
-            border-radius: 24px;
+            padding: 8px 14px;
+            border-radius: 20px;
             text-decoration: none !important;
             font-weight: bold;
         }
@@ -837,10 +844,18 @@
 
         <section class="sponsor-section">
             <h3>Sponsors</h3>
-            <img src="../documents/analytical-logo-hires.jpg" alt="Analytical Technologies logo" class="sponsor-logo">
-            <a href="../documents/Cover-letter_Lavision (Analytical).pdf" target="_blank" class="sponsor-pdf-link">
-                View Sponsor Information (PDF)
-            </a>
+            <div class="sponsor-grid">
+                <div class="sponsor-item">
+                    <img src="../documents/analytical-logo-hires.jpg" alt="Analytical Technologies logo" class="sponsor-logo">
+                    <a href="../documents/Cover-letter_Lavision (Analytical).pdf" target="_blank" class="sponsor-pdf-link">Sponsor Information</a>
+                </div>
+                <div class="sponsor-item">
+                    <a href="https://www.gaiascience.com.sg/" target="_blank" rel="noopener noreferrer" aria-label="Gaia Science website">
+                        <img src="../documents/Gaia Science.png" alt="Gaia Science logo" class="sponsor-logo">
+                    </a>
+                    <a href="../documents/Cover-letter_Gaia Science.pdf" target="_blank" class="sponsor-pdf-link">Sponsor Information</a>
+                </div>
+            </div>
         </section>
 
         <section class="registration-section">
