@@ -1,182 +1,31 @@
 <!DOCTYPE html>
-<html lang='en'>
 
-<head>
-    <base href=".">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
-    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
-
-    <meta name="description"
-          content="Events and news from the Singapore Section of the Combustion Institute (SSCI)">
-
-    <meta name="KeyWords"
-          content="Combustion, Events, Conference, Symposium, ASPACC">
-
-    <title>Events | Singapore Section of the Combustion Institute</title>
-
-    <style>
-
-        .featured-event-item {
-            background-color: #ffefd8;
-            border-left: 8px solid #e65100;
-            padding: 20px 25px;
-            margin-bottom: 2em;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-            transform: scale(1.02);
-            transition: all 0.3s ease-in-out;
-        }
-
-        .featured-event-item:hover {
-            transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-        }
-
-        .featured-event-item h4 {
-            color: #d84315;
-            font-size: 1.5em;
-            margin-top: 0;
-            margin-bottom: 0.5em;
-        }
-
-        .featured-event-item .event-button {
-            display: inline-block;
-            background-color: #b84000;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.1em;
-            margin-top: 0.5em;
-            transition: background-color 0.3s ease,
-                        transform 0.2s ease;
-        }
-
-        .featured-event-item .event-button:hover {
-            background-color: #ff7043;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-    </style>
-
-</head>
-
-
-<body>
-
-    <!-- Shared Header -->
-    <div id="site-header"></div>
-
-    <!-- Shared Navigation -->
-    <div id="site-nav"></div>
-
-
-    <main class="content-wrapper">
-
-
-        <!-- ================================================= -->
-        <!-- UPCOMING EVENTS                                   -->
-        <!-- ================================================= -->
-
-        <section class="event-section" id="upcoming-events">
-
-            <h2>Upcoming Events</h2>
-
-
-            <div class="upcoming-event-item">
-
-                <h4>SSCI Young Combustion Researchers Webinar</h4>
-
-                <p>
-                    <a href="documents/SSCI-webinar_Jiaxin_Liu.pdf" target="_blank">
-                        <strong>View Webinar Poster (PDF)</strong>
-                    </a>
-                </p>
-
-                <p><strong>Date:</strong> September 28, 2026, 17:00 Singapore</p>
-
-                <p><strong>Speaker:</strong> Dr. Jiaxin Liu, National University of Singapore</p>
-
-                <p><strong>Topic:</strong> Model development for surrogate fuels: From reaction class method to automated generation and optimization</p>
-
-                <p>
-                    The SSCI Young Combustion Researchers Webinar is a monthly webinar series for young combustion researchers in Singapore, bringing together PhD students and postdoctoral researchers from NUS, NTU, A*STAR, and other local institutions. The series provides a platform to exchange research ideas, build connections with peers, and promote the visibility of young researchers and their work.
-                </p>
-
-                <p><strong>Host:</strong> Dr. Shangpeng Li (National University of Singapore)</p>
-
-                <p><a href="https://nus-sg.zoom.us/s/87932445619" target="_blank">Join the Zoom meeting</a></p>
-
-            </div>
-
-
-            <div class="upcoming-event-item">
-
-                <h4>
-                    <a href="annuals/2nd-ssci-annual-meeting.html">
-                        2nd SSCI Annual Combustion Meeting
-                    </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> November 16, 2026
-                </p>
-
-                <p>
-                    Following the highly successful inaugural meeting,
-                    the second annual meeting will serve as a forum
-                    for researchers, practitioners, and students from
-                    academia, industry, and government to present recent
-                    advances in combustion research, exchange ideas,
-                    and establish new collaborations.
-
-                    More details are found on the
-                    <a href="annuals/2nd-ssci-annual-meeting.html"
-                       target="_blank">
-                        official conference website
-                    </a>.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ================================================= -->
-        <!-- PAST EVENTS                                       -->
-        <!-- ================================================= -->
-
-        <section class="event-section" id="past-events">
-
-            <h2>Past Events</h2>
-
-
-            <!-- 41st International Symposium -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://www.combustionsymposia.org/"
-                       target="_blank">
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><link href="assets/favicon.png" rel="shortcut icon" type="image/png"/><link href="assets/main.css" rel="stylesheet"/><title>Other Events | SSCI</title><style>
+/* Consistent event-page layout */
+.event-page-intro{max-width:880px;line-height:1.7;color:#425466;margin:0 0 26px}
+.event-section{margin:30px 0 44px;scroll-margin-top:20px}
+.event-section>h3{font-size:1.55rem;color:#005b96;border-bottom:2px solid #dce8f2;padding-bottom:12px;margin-bottom:18px}
+.event-card{background:#f9fbfd;border:1px solid #dce8f2;border-radius:12px;padding:22px 24px;margin:16px 0;box-shadow:0 2px 7px rgba(0,0,0,.035)}
+.event-card h4{margin:0 0 10px;font-size:1.85rem;font-weight:700;color:#183c61;line-height:1.45}
+.event-card h4 a{color:#005b96;text-decoration:none;font-size:inherit;font-weight:inherit}
+.event-card h4 a:hover{text-decoration:underline}
+.event-card p{margin:7px 0 10px;line-height:1.6}
+.event-card .event-date{color:#526678;font-weight:600;margin-bottom:10px}
+.event-card .event-link{display:inline-block;margin-top:8px;color:#005b96;font-weight:600}
+@media(max-width:600px){.event-card{padding:17px}}
+</style></head><body><div id="site-header"></div><div id="site-nav"></div><main class="content-wrapper"><h2>Other Events</h2><p class="event-page-intro">Conferences, workshops and other combustion-related activities.</p><section class="event-section" id="past"><h3>Past Events</h3><div class="event-card event-item">
+<h4>
+<a href="https://www.combustionsymposia.org/" target="_blank">
                         41st International Symposium on Combustion (ISOC 2026)
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> July 26 – 31, 2026
+</h4>
+<p class="event-date">
+<strong>Date:</strong> July 26 – 31, 2026
                 </p>
-
-                <p>
-                    <strong>Location:</strong> Kyoto, Japan
+<p>
+<strong>Location:</strong> Kyoto, Japan
                 </p>
-
-                <p>
+<p>
                     The 41st International Symposium on Combustion
                     will convene at the Kyoto International Conference
                     Center (ICC) in Kyoto, Japan. This is the largest
@@ -184,137 +33,67 @@
                     in the world.
 
                     Visit the
-                    <a href="https://www.combustionsymposia.org/"
-                       target="_blank">
+                    <a href="https://www.combustionsymposia.org/" target="_blank">
                         official website
                     </a>
                     for more information.
                 </p>
-
-            </div>
-
-
-
-            <!-- WHEC 2026 -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://whec2026.org/"
-                       target="_blank">
+</div><div class="event-card event-item">
+<h4>
+<a href="https://whec2026.org/" target="_blank">
                         25th World Hydrogen Energy Conference (WHEC 2026)
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> June 22 – 26, 2026
+</h4>
+<p class="event-date">
+<strong>Date:</strong> June 22 – 26, 2026
                 </p>
-
-                <p>
-                    <strong>Location:</strong> Singapore
+<p>
+<strong>Location:</strong> Singapore
                 </p>
-
-                <p>
+<p>
                     The World Hydrogen Energy Conference (WHEC)
                     is a rallying point for action and collaboration,
                     bringing together leading minds to advance the
                     innovations that will power a global hydrogen economy.
 
                     More information is available on the
-                    <a href="https://whec2026.org/"
-                       target="_blank">
+                    <a href="https://whec2026.org/" target="_blank">
                         official conference website
                     </a>.
                 </p>
-
-            </div>
-
-
-
-            <!-- ASME Turbo Expo -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://event.asme.org/Turbo-Expo"
-                       target="_blank">
+</div><div class="event-card event-item">
+<h4>
+<a href="https://event.asme.org/Turbo-Expo" target="_blank">
                         ASME Turbo Expo 2026
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> June 15 – 19, 2026
+</h4>
+<p class="event-date">
+<strong>Date:</strong> June 15 – 19, 2026
                 </p>
-
-                <p>
-                    <strong>Location:</strong> Milan, Italy
+<p>
+<strong>Location:</strong> Milan, Italy
                 </p>
-
-                <p>
+<p>
                     ASME's premier turbomachinery technical conference
                     and exposition, bringing together leaders from
                     industry, academia, and government.
 
                     More information is available on the
-                    <a href="https://event.asme.org/Turbo-Expo"
-                       target="_blank">
+                    <a href="https://event.asme.org/Turbo-Expo" target="_blank">
                         official conference website
                     </a>.
                 </p>
-
-            </div>
-
-
-
-            <!-- 1st SSCI Annual Meeting -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="annuals/1st-ssci-annual-meeting.html">
-                        1st SSCI Annual Combustion Meeting
-                    </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> December 9, 2025
-                </p>
-
-                <p>
-                    This annual Meeting was a key event for combustion
-                    researchers, engineers, and students in Singapore.
-
-                    It featured technical sessions, a poster session,
-                    and opportunities for collaboration.
-
-                    More details are found on the
-                    <a href="annuals/1st-ssci-annual-meeting.html"
-                       target="_blank">
-                        official conference website
-                    </a>.
-                </p>
-
-            </div>
-
-
-
-            <!-- ASPACC 2025 -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://www.aspacc2025.org/"
-                       target="_blank">
+</div><div class="event-card event-item">
+<h4>
+<a href="https://www.aspacc2025.org/" target="_blank">
                         15th Asia-Pacific Conference on Combustion
                         (ASPACC 2025)
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> May 18 – 22, 2025
+</h4>
+<p class="event-date">
+<strong>Date:</strong> May 18 – 22, 2025
                 </p>
-
-                <p>
+<p>
                     The SSCI was proud to host ASPACC 2025,
                     a cornerstone event for combustion research
                     in the Asia-Pacific region.
@@ -324,33 +103,21 @@
                     advancements in the field.
 
                     Visit the
-                    <a href="https://www.aspacc2025.org/"
-                       target="_blank">
+                    <a href="https://www.aspacc2025.org/" target="_blank">
                         official conference website
                     </a>
                     for proceedings and highlights.
                 </p>
-
-            </div>
-
-
-
-            <!-- 2nd OpenFOAM Workshop -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://blog.nus.edu.sg/ofcw2025/home/"
-                       target="_blank">
+</div><div class="event-card event-item">
+<h4>
+<a href="https://blog.nus.edu.sg/ofcw2025/home/" target="_blank">
                         2nd International OpenFOAM Combustion Workshop
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> May 17, 2025
+</h4>
+<p class="event-date">
+<strong>Date:</strong> May 17, 2025
                 </p>
-
-                <p>
+<p>
                     This workshop was held at the National University
                     of Singapore, just prior to the ASPACC 2025 conference.
 
@@ -359,32 +126,20 @@
                     using OpenFOAM.
 
                     For more details, visit the
-                    <a href="https://blog.nus.edu.sg/ofcw2025/home/"
-                       target="_blank">
+                    <a href="https://blog.nus.edu.sg/ofcw2025/home/" target="_blank">
                         workshop's official page
                     </a>.
                 </p>
-
-            </div>
-
-
-
-            <!-- 1st OpenFOAM Workshop -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://blog.nus.edu.sg/ofcw/home/"
-                       target="_blank">
+</div><div class="event-card event-item">
+<h4>
+<a href="https://blog.nus.edu.sg/ofcw/home/" target="_blank">
                         1st International OpenFOAM Combustion Workshop
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> June 19 – 20, 2023
+</h4>
+<p class="event-date">
+<strong>Date:</strong> June 19 – 20, 2023
                 </p>
-
-                <p>
+<p>
                     Held in Chongqing, China, this event was a follow-up
                     to the successful "OpenFOAM and Combustion Simulation
                     Webinar" series.
@@ -394,32 +149,20 @@
                     applications.
 
                     More information is available on the
-                    <a href="https://blog.nus.edu.sg/ofcw/home/"
-                       target="_blank">
+                    <a href="https://blog.nus.edu.sg/ofcw/home/" target="_blank">
                         workshop's website
                     </a>.
                 </p>
-
-            </div>
-
-
-
-            <!-- OpenFOAM Webinar -->
-
-            <div class="event-item">
-
-                <h4>
-                    <a href="https://blog.nus.edu.sg/huangwei/of4combust/"
-                       target="_blank">
+</div><div class="event-card event-item">
+<h4>
+<a href="https://blog.nus.edu.sg/huangwei/of4combust/" target="_blank">
                         OpenFOAM and Combustion Simulation Webinar
                     </a>
-                </h4>
-
-                <p>
-                    <strong>Date:</strong> 2022 – 2023
+</h4>
+<p class="event-date">
+<strong>Date:</strong> 2022 – 2023
                 </p>
-
-                <p>
+<p>
                     This series of online seminars brought together
                     researchers and practitioners from around the world
                     to discuss the use of OpenFOAM for combustion simulations.
@@ -428,86 +171,8 @@
                     collaboration within the international OpenFOAM community.
 
                     Details and recordings can be found on the
-                    <a href="https://blog.nus.edu.sg/huangwei/of4combust/"
-                       target="_blank">
+                    <a href="https://blog.nus.edu.sg/huangwei/of4combust/" target="_blank">
                         webinar page
                     </a>.
                 </p>
-
-            </div>
-
-
-        </section>
-
-    </main>
-
-
-    <!-- Shared Footer -->
-    <div id="site-footer"></div>
-
-
-    <!-- Shared Header / Navigation / Footer -->
-    <script src="assets/site.js"></script>
-
-
-    <!-- Event Category Control -->
-    <script>
-
-        function showEventCategory() {
-
-            const upcoming =
-                document.getElementById("upcoming-events");
-
-            const past =
-                document.getElementById("past-events");
-
-            const category =
-                window.location.hash.toLowerCase();
-
-
-            /*
-             * events.html#past
-             * Only show Past Events
-             */
-
-            if (category === "#past") {
-
-                upcoming.style.display = "none";
-                past.style.display = "block";
-
-            }
-
-
-            /*
-             * events.html#upcoming
-             * or no recognised category
-             * Only show Upcoming Events
-             */
-
-            else {
-
-                upcoming.style.display = "block";
-                past.style.display = "none";
-
-            }
-
-        }
-
-
-        // Run when page loads
-        showEventCategory();
-
-
-        // Also respond when the user switches
-        // Upcoming/Past without reloading the page
-        window.addEventListener(
-            "hashchange",
-            showEventCategory
-        );
-
-    </script>
-
-
-</body>
-
-</html>
+</div></section></main><div id="site-footer"></div><script src="assets/site.js"></script></body></html>

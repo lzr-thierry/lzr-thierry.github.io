@@ -74,19 +74,9 @@
                     </a>
                 
                     <ul class="dropdown-menu">
-                
-                        <li>
-                            <a href="${root}events.html#upcoming">
-                                Upcoming Events
-                            </a>
-                        </li>
-                
-                        <li>
-                            <a href="${root}events.html#past">
-                                Past Events
-                            </a>
-                        </li>
-                
+                        <li><a href="${root}annual-meetings.html">Annual Meetings</a></li>
+                        <li><a href="${root}webinars.html">Webinars</a></li>
+                        <li><a href="${root}events.html">Other Events</a></li>
                     </ul>
                 
                 </li>
@@ -199,6 +189,8 @@
 
     } else if (
         path.includes("events.html") ||
+        path.includes("webinars.html") ||
+        path.includes("annual-meetings.html") ||
         path.includes("annuals")
     ) {
 
