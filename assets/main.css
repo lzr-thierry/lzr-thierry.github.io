@@ -167,9 +167,9 @@ a:focus-visible, button:focus-visible {
     flex-shrink: 0;
 }
 .brand img { height: 44px; width: auto; display: block; }
-.brand-text { display: flex; flex-direction: column; line-height: 1.2; }
-.brand-text strong { font-size: 1.15rem; letter-spacing: 0.02em; color: var(--primary-dark); }
-.brand-text span { font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+.brand-text { font-size: 1.05rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--primary-dark); }
+.brand-abbr { font-weight: 500; color: var(--text-muted); margin-left: 2px; }
+.brand-short { display: none; font-size: 1.15rem; letter-spacing: 0.02em; }
 
 .navigation ul {
     list-style: none;
@@ -598,8 +598,6 @@ a:focus-visible, button:focus-visible {
     .feature-card .feature-main, .feature-card .feature-side { padding: 24px 20px; }
     .event-card, .upcoming-event-item, .event-item { padding: 18px 18px; }
     .site-header-inner { padding: 0 16px; }
-    .brand-text span { display: none; }
-    .brand-text strong { font-size: 1.1rem; }
     .board-member { width: 100%; max-width: 300px; }
 }
 
@@ -610,3 +608,9 @@ a:focus-visible, button:focus-visible {
 
 /* Home page: footer sits directly under the call-to-action band */
 .home .site-footer { margin-top: 0; }
+
+/* Header: full name on wide screens, short name when space is tight */
+@media (max-width: 1180px) {
+    .brand-full { display: none; }
+    .brand-short { display: inline; }
+}
