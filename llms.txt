@@ -1,0 +1,19 @@
+# Singapore Section of the Combustion Institute (SSCI)
+
+> The Singapore Section of the Combustion Institute (SSCI), established in 2024, fosters and promotes research in combustion science in Singapore and beyond, with a focus on science and technology for decarbonization and sustainability. It is a section of The Combustion Institute (https://www.combustioninstitute.org/). Contact: office@ssci-combustion.org
+
+## Main pages
+- [Home](https://www.ssci-combustion.org/): overview, latest SSCI event, and latest news and events from The Combustion Institute
+- [About](https://www.ssci-combustion.org/about.html): executive board, committee members, honorary life members and the section bylaws
+- [Annual Meetings](https://www.ssci-combustion.org/annual-meetings.html): the 1st (9 December 2025) and 2nd (16 November 2026) SSCI Annual Combustion Meetings
+- [Webinars](https://www.ssci-combustion.org/webinars.html): SSCI Young Combustion Researchers Webinar Series
+- [Other Events](https://www.ssci-combustion.org/events.html): related conferences and workshops
+- [Membership](https://www.ssci-combustion.org/membership.html): benefits, fees and how to join
+- [Young Investigator Award](https://www.ssci-combustion.org/young-investigator-award.html): award description, 2026 recipients and selection panel
+- [Young Researcher Exchange Programme](https://www.ssci-combustion.org/collaboration.html): collaboration programme with neighbouring Sections of The Combustion Institute
+- [Contact](https://www.ssci-combustion.org/contacts.html): office email, LinkedIn and The Combustion Institute
+
+## Optional
+- [2nd SSCI Annual Combustion Meeting](https://www.ssci-combustion.org/annuals/2nd-ssci-annual-meeting.html): theme "Future Combustion: Science, Innovation and Sustainability", Level 2 Theatrette, CREATE Tower, Singapore
+- [1st SSCI Annual Combustion Meeting](https://www.ssci-combustion.org/annuals/1st-ssci-annual-meeting.html): theme "Power a Net-Zero and Sustainable Future", LT6, National University of Singapore
+- [Sitemap](https://www.ssci-combustion.org/sitemap.xml)
