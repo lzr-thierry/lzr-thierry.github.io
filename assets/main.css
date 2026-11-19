@@ -623,11 +623,8 @@ a:focus-visible, button:focus-visible {
 .benefit { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 22px 22px 18px; box-shadow: var(--shadow-sm); }
 .benefit h3 { margin: 0 0 8px 0; font-size: 1.1rem; border: 0; padding: 0; }
 .benefit p { margin: 0; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
-.fee-layout { display: grid; grid-template-columns: 1fr 1.6fr; gap: 16px; align-items: stretch; }
-.fee-free { background: var(--primary-dark); color: #fff; border-radius: var(--radius); padding: 26px 28px; display: flex; flex-direction: column; justify-content: center; }
+.fee-layout { display: block; }
 .fee-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; margin-bottom: 8px; }
-.fee-free .fee-label { color: #fff; }
-.fee-big { font-size: 2.6rem; font-weight: 800; line-height: 1.1; }
 .fee-rates { background: var(--primary-soft); border-radius: var(--radius); padding: 22px 26px; }
 .fee-rates .fee-label { color: var(--primary-color); }
 .fee-table { width: 100%; border-collapse: collapse; }
@@ -641,7 +638,6 @@ a:focus-visible, button:focus-visible {
 .steps h3 { margin: 0 0 8px 0; font-size: 1.1rem; border: 0; padding: 0; }
 .steps p { color: var(--text-muted); font-size: 0.95rem; flex: 1; }
 .steps .btn { align-self: flex-start; }
-.steps .step-note { flex: 0; font-size: 0.9rem; font-style: italic; }
 .btn[aria-disabled="true"] { background: #b9a5ad; border-color: #b9a5ad; cursor: not-allowed; pointer-events: none; }
 .pay-note { margin-top: 16px; color: var(--text-muted); font-size: 0.95rem; }
 @media (max-width: 860px) {
