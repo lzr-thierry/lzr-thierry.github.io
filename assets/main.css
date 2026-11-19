@@ -318,19 +318,20 @@ a:focus-visible, button:focus-visible {
     margin: 0 auto;
     padding: 56px 24px 64px 24px;
 }
-/* Text sits on a frosted white panel so it stays readable over the photo */
+/* Text sits on a frosted rose panel (right side) so it stays readable over the photo
+   and the Marina Bay Sands on the left stays visible */
 .hero-panel {
     max-width: 640px;
-    margin-left: auto; /* panel on the right so the Marina Bay Sands on the left stays visible */
+    margin-left: auto;
     padding: 34px 40px 36px 40px;
     border-radius: 22px;
-    background: rgba(255, 255, 255, 0.90);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(110, 16, 54, 0.80);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     box-shadow: 0 10px 40px rgba(70, 8, 36, 0.28);
 }
 @supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
     .hero-panel {
-        background: rgba(255, 255, 255, 0.80);
+        background: rgba(110, 16, 54, 0.61);
         -webkit-backdrop-filter: blur(12px) saturate(1.15);
         backdrop-filter: blur(12px) saturate(1.15);
     }
@@ -340,11 +341,11 @@ a:focus-visible, button:focus-visible {
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.88);
     margin-bottom: 12px;
 }
 .hero h1 {
-    color: var(--primary-dark);
+    color: #fff;
     font-size: 2.9rem;
     font-weight: 800;
     line-height: 1.12;
@@ -352,8 +353,11 @@ a:focus-visible, button:focus-visible {
 }
 .hero p.lead {
     font-size: 1.12rem;
-    color: #4a2a38;
+    color: rgba(255, 255, 255, 0.94);
     margin-bottom: 26px;
+}
+.hero .eyebrow, .hero h1, .hero p.lead {
+    text-shadow: 0 1px 8px rgba(70, 8, 36, 0.35);
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
