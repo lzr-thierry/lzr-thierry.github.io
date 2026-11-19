@@ -3,6 +3,9 @@
 *.bak.*
 
 *.txt
+# These text files are part of the site
+!robots.txt
+!llms.txt
 *.mp3
 *.mp4
 
