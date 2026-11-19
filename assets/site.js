@@ -113,7 +113,7 @@
 
                 <div>
                     <h4>Contact</h4>
-                    <p><a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a></p>
+                    <p><a href="mailto:office@ssci-combustion.org">office@ssci-combustion.org</a></p>
                     <p><a href="${root}contacts.html">More contact details</a></p>
                 </div>
             </div>

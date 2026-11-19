@@ -19,6 +19,7 @@ It is plain static HTML, CSS and JavaScript. There is no build step, no package 
 
 - Pushing to `main` triggers `.github/workflows/static.yml`, which publishes the whole repository to GitHub Pages. The live site updates within a couple of minutes. Check progress in the Actions tab.
 - `CNAME` holds the custom domain (`www.ssci-combustion.org`). Never delete or edit it unless the domain is deliberately being changed. DNS is managed at the domain registrar, not in this repository.
+- The home page block "Latest News and Events from CI" reads `data/ci-news.js`, which `scripts/fetch_ci_news.py` builds from the Latest News and Upcoming Events lists on https://www.combustioninstitute.org/index.php (those lists have no dates, so the first entries are used; SSCI's own events are skipped because the home page already shows them). The deploy workflow runs the script every day and before each deploy. Whenever the list changes the workflow commits the new `data/ci-news.js` to `main` (a bot commit), so if a later fetch fails the last good list is shown. If CI changes its page layout the script keeps the old list; fix the parser in `scripts/fetch_ci_news.py`. Do not edit `data/ci-news.js` by hand.
 - Because every push to `main` goes live, make changes on a branch, preview them locally, and merge through a pull request.
 
 ## Preview locally
@@ -39,6 +40,6 @@ python3 -m http.server 8000
 - Link to documents with the exact file name, including case. GitHub Pages is case sensitive.
 - Do not commit `.bak`, `.txt`, `.mp3` or `.mp4` files (they are in `.gitignore`).
 - `SSCI-website-content.md` is a plain-text copy of the site text and `code_collector.py` is a helper script. Neither is part of the published pages. Do not treat them as the source of truth for content.
-- Keep text in English. Contact email is ssci.combustion@gmail.com.
+- Keep text in English. Contact email is office@ssci-combustion.org.
 - Headings use Title Case (capitalise every main word; keep short words such as a, the, and, of, in, to, for, with in lower case), for example "Membership Fees and Period". Talk titles keep the speaker's original wording.
 - Before finishing a change, check that every link and image you touched resolves, and that pages in `annuals/` still load their assets.

@@ -6,12 +6,16 @@ on:
   push:
     branches: ["main"]
 
+  # Redeploys once a day so the "Latest News from CI" list on the home page stays current
+  schedule:
+    - cron: "17 21 * * *"
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write  # lets the news step save a changed list back to the repository
   pages: write
   id-token: write
 
@@ -31,6 +35,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Refresh Combustion Institute news
+        # If CI's site is down or its layout changes, keep the previous list and deploy anyway
+        continue-on-error: true
+        run: python3 scripts/fetch_ci_news.py
+      - name: Save the news list if it changed
+        # Keeps the last successfully fetched list in the repository, so a later failed fetch shows it
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          old=$(git show HEAD:data/ci-news.js 2>/dev/null | grep -v '"updated"' || true)
+          new=$(grep -v '"updated"' data/ci-news.js || true)
+          if [ "$old" != "$new" ]; then
+            git add data/ci-news.js
+            git commit -m "Update CI news list"
+            git push
+          else
+            echo "CI news list unchanged"
+          fi
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

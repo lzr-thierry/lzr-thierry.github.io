@@ -40,7 +40,7 @@
 
         <!-- Latest event -->
         <section class="home-section">
-            <p class="section-kicker">Latest event</p>
+            <p class="section-kicker">Latest Event from SSCI</p>
             <div class="feature-card">
                 <div class="feature-main">
                     <span class="badge">Annual Meeting</span>
@@ -67,6 +67,26 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Latest news and events from The Combustion Institute: filled from data/ci-news.js (refreshed daily by the deploy workflow) -->
+        <section class="home-section" id="ci-news" hidden>
+            <p class="section-kicker">Latest News and Events from CI</p>
+            <div class="news-columns">
+                <div id="ci-news-col" hidden>
+                    <h3>Latest News</h3>
+                    <ul class="news-list" id="ci-news-list"></ul>
+                </div>
+                <div id="ci-events-col" hidden>
+                    <h3>Upcoming Events</h3>
+                    <ul class="news-list" id="ci-events-list"></ul>
+                </div>
+            </div>
+            <p class="news-meta">
+                Source: <a href="https://www.combustioninstitute.org/index.php" target="_blank" rel="noopener">The Combustion Institute</a><span id="ci-news-updated"></span>
+                &middot; <a id="ci-news-archive" href="https://members.combustioninstitute.org/news_archive_headlines.php?org_id=CMBI" target="_blank" rel="noopener">All CI news</a>
+                &middot; <a id="ci-events-calendar" href="https://members.combustioninstitute.org/members/calendar6c_responsive.php?org_id=CMBI" target="_blank" rel="noopener">CI events calendar</a>
+            </p>
         </section>
 
         <!-- About -->
@@ -132,6 +152,51 @@
     <div id="site-footer"></div>
 
 <script src="assets/site.js"></script>
+<script src="data/ci-news.js"></script>
+<script>
+    // Show the newest CI news and events. Titles are inserted as plain text and only https links are used.
+    (function () {
+        var data = window.CI_NEWS;
+        var section = document.getElementById("ci-news");
+        if (!data || !section) { return; }
+
+        function fill(items, listId, colId) {
+            var list = document.getElementById(listId);
+            (items || []).slice(0, 6).forEach(function (item) {
+                if (!item || typeof item.title !== "string" || !/^https:\/\//.test(item.url || "")) { return; }
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.href = item.url;
+                a.target = "_blank";
+                a.rel = "noopener";
+                var title = document.createElement("span");
+                title.textContent = item.title;
+                var arrow = document.createElement("span");
+                arrow.className = "arrow";
+                arrow.setAttribute("aria-hidden", "true");
+                arrow.textContent = "\u2197";
+                a.appendChild(title);
+                a.appendChild(arrow);
+                li.appendChild(a);
+                list.appendChild(li);
+            });
+            if (list.children.length) { document.getElementById(colId).hidden = false; }
+            return list.children.length;
+        }
+
+        var total = fill(data.news, "ci-news-list", "ci-news-col") + fill(data.events, "ci-events-list", "ci-events-col");
+        if (!total) { return; }
+
+        if (/^https:\/\/[^ ]+$/.test(data.calendar || "")) { document.getElementById("ci-events-calendar").href = data.calendar; }
+        if (/^\d{4}-\d{2}-\d{2}$/.test(data.updated || "")) {
+            var d = new Date(data.updated + "T00:00:00");
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            document.getElementById("ci-news-updated").textContent =
+                " (updated " + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + ")";
+        }
+        section.hidden = false;
+    })();
+</script>
 
 </body>
 </html>
