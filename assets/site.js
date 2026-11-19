@@ -1,7 +1,8 @@
 (function () {
 
     // =========================================================
-    // 1. 判断当前页面是否位于子目录
+    // 1. Detect whether the page is inside a sub-folder (annuals/)
+    //    Links and images get a "../" prefix in that case.
     // =========================================================
 
     const isAnnualMeetingPage =
@@ -11,162 +12,129 @@
 
 
     // =========================================================
-    // 2. 公共 Header
-    //    完全保持原网站的 HTML 结构和 class
+    // 2. Navigation menu
+    //
+    // To add, remove or rename a menu item, edit this block.
+    // Each item needs a "page" id that matches the logic in section 6.
+    // An item with "children" becomes a dropdown (Events).
+    // =========================================================
+
+    const navItems = [
+        { label: "Home", href: "index.html", page: "home" },
+        { label: "About", href: "about.html", page: "about" },
+        {
+            label: "Events",
+            href: "annual-meetings.html",
+            page: "events",
+            children: [
+                { label: "Annual Meetings", href: "annual-meetings.html" },
+                { label: "Webinars", href: "webinars.html" },
+                { label: "Other Events", href: "events.html" }
+            ]
+        },
+        { label: "Membership", href: "membership.html", page: "membership" },
+        { label: "Award", href: "young-investigator-award.html", page: "award" },
+        { label: "Collaboration", href: "collaboration.html", page: "collaboration" },
+        { label: "Contact", href: "contacts.html", page: "contacts" }
+    ];
+
+    const navListHTML = navItems.map(function (item) {
+        if (item.children) {
+            const childrenHTML = item.children.map(function (c) {
+                return `<li><a href="${root}${c.href}">${c.label}</a></li>`;
+            }).join("");
+
+            return `
+                <li class="dropdown">
+                    <a href="${root}${item.href}" data-page="${item.page}">${item.label}</a>
+                    <ul class="dropdown-menu">${childrenHTML}</ul>
+                </li>`;
+        }
+
+        return `
+            <li>
+                <a href="${root}${item.href}" data-page="${item.page}">${item.label}</a>
+            </li>`;
+    }).join("");
+
+
+    // =========================================================
+    // 3. Header (logo, site name, navigation, mobile menu button)
     // =========================================================
 
     const headerHTML = `
-        <header class="banner-container">
-            <img
-                src="${root}assets/SSCI-logo.png"
-                alt="SSCI Logo"
-                class="banner-logo left"
-            >
+        <header class="site-header">
+            <div class="site-header-inner">
+                <a class="brand" href="${root}index.html">
+                    <img src="${root}assets/SSCI-logo.png" alt="SSCI logo">
+                    <span class="brand-text">
+                        <strong>SSCI</strong>
+                        <span>Singapore Section of the Combustion Institute</span>
+                    </span>
+                </a>
 
-            <img
-                src="${root}assets/singapore_p3.jpg"
-                alt="Singapore Skyline Banner"
-                class="banner"
-            >
+                <button class="nav-toggle" type="button"
+                        aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
+                    <span></span><span></span><span></span>
+                </button>
 
-            <div class="overlay-text">
-                Singapore Section of the Combustion Institute
+                <nav class="navigation" id="site-menu" aria-label="Main">
+                    <ul>${navListHTML}</ul>
+                </nav>
             </div>
-
-            <img
-                src="${root}assets/CI-logo.png"
-                alt="Combustion Institute Logo"
-                class="banner-logo right"
-            >
         </header>
     `;
 
 
     // =========================================================
-    // 3. 公共 Navigation
+    // 4. Footer
     //
-    // 以后新增/删除主栏目、子栏目，主要改这里
-    // =========================================================
-
-    const navigationHTML = `
-        <nav class="navigation">
-            <ul>
-
-                <li>
-                    <a href="${root}index.html" data-page="home">
-                        Home
-                    </a>
-                </li>
-
-                <li>
-                    <a href="${root}about.html" data-page="about">
-                        About
-                    </a>
-                </li>
-
-                <li class="dropdown">
-
-                    <a
-                        href="javascript:void(0);"
-                        data-page="events"
-                    >
-                        Events
-                    </a>
-                
-                    <ul class="dropdown-menu">
-                        <li><a href="${root}annual-meetings.html">Annual Meetings</a></li>
-                        <li><a href="${root}webinars.html">Webinars</a></li>
-                        <li><a href="${root}events.html">Other Events</a></li>
-                    </ul>
-                
-                </li>
-
-                <li>
-                    <a href="${root}membership.html" data-page="membership">
-                        Membership
-                    </a>
-                </li>
-                
-                <li class="dropdown">
-                
-                    <a
-                        href="javascript:void(0);"
-                        data-page="award"
-                    >
-                        Award
-                    </a>
-                
-                    <ul class="dropdown-menu">
-                
-                        <li>
-                            <a href="${root}young-investigator-award.html">
-                                Young Investigator Award
-                            </a>
-                        </li>
-                
-                    </ul>
-                
-                </li>
-                
-                <li class="dropdown">
-
-                    <a
-                        href="javascript:void(0);"
-                        data-page="collaboration"
-                    >
-                        Collaboration
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <li>
-                            <a href="${root}collaboration.html">
-                                Young Researcher Exchange Programme
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </li>
-
-                <li>
-                    <a href="${root}contacts.html" data-page="contacts">
-                        Contact
-                    </a>
-                </li>
-
-            </ul>
-        </nav>
-    `;
-
-
-    // =========================================================
-    // 4. 公共 Footer
+    // To change the contact email or footer links, edit this block.
     // =========================================================
 
     const footerHTML = `
-        <footer>
-            <p>&copy; Singapore Section of the Combustion Institute</p>
-            <p>Contact: <a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a></p>
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <strong>Singapore Section of the Combustion Institute</strong>
+                    <p>Fostering and promoting research in combustion science in Singapore and beyond.
+                       A section of <a href="https://www.combustioninstitute.org" target="_blank" rel="noopener">The Combustion Institute</a>.</p>
+                </div>
+
+                <div>
+                    <h4>Explore</h4>
+                    <ul class="footer-links">
+                        <li><a href="${root}about.html">About</a></li>
+                        <li><a href="${root}annual-meetings.html">Annual Meetings</a></li>
+                        <li><a href="${root}membership.html">Membership</a></li>
+                        <li><a href="${root}young-investigator-award.html">Young Investigator Award</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Contact</h4>
+                    <p><a href="mailto:ssci.combustion@gmail.com">ssci.combustion@gmail.com</a></p>
+                    <p><a href="${root}contacts.html">More contact details</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; ${new Date().getFullYear()} Singapore Section of the Combustion Institute
+            </div>
         </footer>
     `;
 
 
     // =========================================================
-    // 5. 把 Header / Navigation / Footer 放入网页
+    // 5. Put header and footer into the page
+    //    The navigation lives inside the header, so the old
+    //    #site-nav placeholder is left empty.
     // =========================================================
 
     const headerTarget = document.getElementById("site-header");
-    const navTarget = document.getElementById("site-nav");
     const footerTarget = document.getElementById("site-footer");
-
 
     if (headerTarget) {
         headerTarget.innerHTML = headerHTML;
-    }
-
-    if (navTarget) {
-        navTarget.innerHTML = navigationHTML;
     }
 
     if (footerTarget) {
@@ -175,49 +143,31 @@
 
 
     // =========================================================
-    // 6. 自动判断当前页面
+    // 6. Work out which menu item is the current page
     // =========================================================
 
     const path = window.location.pathname.toLowerCase();
 
     let currentPage = "home";
 
-
     if (path.includes("about.html")) {
-
         currentPage = "about";
-
     } else if (
         path.includes("events.html") ||
         path.includes("webinars.html") ||
         path.includes("annual-meetings.html") ||
         path.includes("annuals")
     ) {
-
         currentPage = "events";
-
     } else if (path.includes("membership.html")) {
-
         currentPage = "membership";
-
     } else if (path.includes("young-investigator-award.html")) {
-
         currentPage = "award";
-
     } else if (path.includes("collaboration.html")) {
-
         currentPage = "collaboration";
-
     } else if (path.includes("contacts.html")) {
-
         currentPage = "contacts";
-
     }
-
-
-    // =========================================================
-    // 7. 自动给当前栏目添加 current
-    // =========================================================
 
     const currentNavItem = document.querySelector(
         `[data-page="${currentPage}"]`
@@ -225,6 +175,30 @@
 
     if (currentNavItem) {
         currentNavItem.classList.add("current");
+    }
+
+
+    // =========================================================
+    // 7. Mobile menu open / close
+    // =========================================================
+
+    const header = document.querySelector(".site-header");
+    const toggle = document.querySelector(".nav-toggle");
+
+    if (header && toggle) {
+        toggle.addEventListener("click", function () {
+            const open = header.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+            toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        });
+
+        // Close the menu after choosing a link
+        header.querySelectorAll(".navigation a").forEach(function (a) {
+            a.addEventListener("click", function () {
+                header.classList.remove("open");
+                toggle.setAttribute("aria-expanded", "false");
+            });
+        });
     }
 
 })();
