@@ -10,7 +10,9 @@ The CI homepage lists have no dates and are maintained by CI, so the first MAX_I
 entries of each list are used. SSCI's own events are skipped in the events list because
 the home page already shows them in the "Latest Event from SSCI" block. If the page cannot be fetched or no news items
 are found, the existing data/ci-news.js is left unchanged and the script exits
-with an error (the workflow ignores that and keeps the previous list).
+with an error (the workflow ignores that and keeps the previous list). If only the events
+list cannot be read, the previous events are kept. The workflow saves every changed list
+back to the repository, so "previous" means the last list that was fetched successfully.
 
 For testing against a saved copy of the page:  python3 scripts/fetch_ci_news.py --from-file page.html
 """
@@ -98,6 +100,15 @@ def parse_events(page_html):
     return kept[:MAX_ITEMS]
 
 
+def load_previous():
+    """Return the data currently in data/ci-news.js, or {} if it is missing or unreadable."""
+    try:
+        text = OUT_FILE.read_text(encoding="utf-8")
+        return json.loads(text[text.index("{"):text.rindex("}") + 1])
+    except Exception:
+        return {}
+
+
 def main():
     if "--from-file" in sys.argv:
         page = Path(sys.argv[sys.argv.index("--from-file") + 1]).read_text(encoding="utf-8", errors="ignore")
@@ -108,9 +119,9 @@ def main():
     news = parse_news(page)
     try:
         events = parse_events(page)
-    except ValueError as exc:  # events are optional: the home page hides the column if there are none
-        print("events skipped:", exc, file=sys.stderr)
-        events = []
+    except ValueError as exc:  # could not read the events list: keep the previous events
+        print("events not updated, keeping the previous list:", exc, file=sys.stderr)
+        events = load_previous().get("events", [])
     data = {
         "updated": datetime.date.today().isoformat(),
         "source": SOURCE_URL,
