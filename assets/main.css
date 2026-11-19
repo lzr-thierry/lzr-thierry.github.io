@@ -309,7 +309,7 @@ a:focus-visible, button:focus-visible {
         linear-gradient(120deg, #c85a80 0%, #ee7fa0 55%, #ffa6bf 100%),
         url('singapore_p3.jpg');
     background-size: cover;
-    background-position: center, center bottom;
+    background-position: center, 60% bottom; /* shifts the photo left so the full CBD skyline shows; the panel covers the ferris wheel */
     background-repeat: no-repeat;
     background-blend-mode: soft-light, normal;
 }
