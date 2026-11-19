@@ -304,9 +304,24 @@ a:focus-visible, button:focus-visible {
 .hero {
     position: relative;
     color: #fff;
-    background:
-        linear-gradient(90deg, rgba(140, 30, 68, 0.96) 0%, rgba(170, 44, 86, 0.88) 38%, rgba(176, 50, 92, 0.38) 72%, rgba(176, 50, 92, 0.08) 100%),
-        url('singapore_p3.jpg') center bottom / cover no-repeat;
+    background-color: #8d2650;
+    /* Layers, top to bottom:
+       1 darker top edge, 2 darker left side (keeps white text readable),
+       3 vivid rose colour tint blended into the photo, 4 the skyline photo */
+    background-image:
+        linear-gradient(180deg, rgba(100, 14, 50, 0.45) 0%, rgba(100, 14, 50, 0) 55%),
+        linear-gradient(90deg, rgba(120, 18, 58, 0.86) 0%, rgba(130, 24, 64, 0.70) 42%, rgba(140, 28, 70, 0.25) 72%, rgba(140, 28, 70, 0) 90%),
+        linear-gradient(120deg, #8d2650 0%, #b83a64 60%, #d4577a 100%),
+        url('singapore_p3.jpg');
+    background-size: cover;
+    background-position: center, center, center, center bottom;
+    background-repeat: no-repeat;
+    background-blend-mode: normal, normal, soft-light, normal;
+}
+.hero .eyebrow,
+.hero h1,
+.hero p.lead {
+    text-shadow: 0 2px 14px rgba(90, 10, 45, 0.55), 0 1px 3px rgba(90, 10, 45, 0.45);
 }
 .hero-inner {
     max-width: var(--page-width);
@@ -578,10 +593,13 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 820px) {
+    /* Text spans the full width on small screens, so darken the whole hero evenly */
     .hero {
-        background:
-            linear-gradient(180deg, rgba(140, 30, 68, 0.94) 0%, rgba(170, 44, 86, 0.86) 60%, rgba(176, 50, 92, 0.62) 100%),
-            url('singapore_p3.jpg') center bottom / cover no-repeat;
+        background-image:
+            linear-gradient(180deg, rgba(100, 14, 50, 0.30) 0%, rgba(100, 14, 50, 0) 55%),
+            linear-gradient(180deg, rgba(120, 18, 58, 0.66) 0%, rgba(130, 24, 64, 0.58) 100%),
+            linear-gradient(120deg, #8d2650 0%, #b83a64 60%, #d4577a 100%),
+            url('singapore_p3.jpg');
     }
     .hero-inner { padding: 56px 20px 64px 20px; }
     .hero h1 { font-size: 2.2rem; }
