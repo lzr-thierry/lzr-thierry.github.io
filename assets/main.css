@@ -445,30 +445,6 @@ a:focus-visible, button:focus-visible {
 .mission-box h3 { margin: 0 0 8px 0; font-size: 1.1rem; border: 0; padding: 0; }
 .mission-box p { margin: 0; color: var(--text-muted); font-size: 0.97rem; }
 
-.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.link-card {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    padding: 26px 24px;
-    text-decoration: none !important;
-    color: var(--text-color);
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
-}
-.link-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary-line);
-    color: var(--text-color);
-}
-.link-card h3 { margin: 0 0 8px 0; font-size: 1.15rem; border: 0; padding: 0; color: var(--primary-dark); }
-.link-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; flex: 1; }
-.link-card .more { color: var(--primary-color); font-weight: 600; font-size: 0.93rem; }
-.link-card .more::after { content: " \2192"; }
-
 .cta-band {
     margin-top: 72px;
     background: linear-gradient(105deg, #8c1e47, #b0325c);
@@ -508,6 +484,9 @@ a:focus-visible, button:focus-visible {
 .news-list .arrow { flex-shrink: 0; color: var(--primary-color); font-weight: 700; }
 .news-meta { margin: 14px 0 0 0; font-size: 0.85rem; color: var(--text-muted); }
 @media (max-width: 760px) { .news-columns { grid-template-columns: 1fr; } }
+
+/* ---------- One-line notice at the top of a page ---------- */
+.page-notice { margin: 0 0 1.4em 0; padding: 12px 18px; background: var(--primary-soft); border-left: 4px solid var(--primary-color); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-weight: 500; }
 
 /* ---------- Event cards (Events, Annual Meetings, Webinars) ---------- */
 .event-page-intro { max-width: 800px; color: var(--text-muted); margin: 0 0 26px 0; line-height: 1.7; }
@@ -751,7 +730,6 @@ a:focus-visible, button:focus-visible {
     .feature-card { grid-template-columns: 1fr; }
     .feature-card .feature-side { border-left: 0; border-top: 1px solid var(--primary-line); }
     .about-grid { grid-template-columns: 1fr; gap: 24px; }
-    .card-grid { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; gap: 28px; }
 }
 
