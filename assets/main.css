@@ -680,7 +680,7 @@ a:focus-visible, button:focus-visible {
     margin: 0 auto;
     padding: 52px 24px 28px 24px;
     display: grid;
-    grid-template-columns: 1.6fr 1fr 1.2fr;
+    grid-template-columns: 1.5fr 1fr 1.3fr 1.2fr;
     gap: 40px;
 }
 .site-footer h4 {
