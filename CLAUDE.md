@@ -22,6 +22,12 @@ It is plain static HTML, CSS and JavaScript. There is no build step, no package 
 - The home page block "Latest News and Events from CI" reads `data/ci-news.js`, which `scripts/fetch_ci_news.py` builds from the Latest News and Upcoming Events lists on https://www.combustioninstitute.org/index.php (those lists have no dates, so the first entries are used; SSCI's own events are skipped because the home page already shows them). The deploy workflow runs the script every day and before each deploy. Whenever the list changes the workflow commits the new `data/ci-news.js` to `main` (a bot commit), so if a later fetch fails the last good list is shown. If CI changes its page layout the script keeps the old list; fix the parser in `scripts/fetch_ci_news.py`. Do not edit `data/ci-news.js` by hand.
 - Because every push to `main` goes live, make changes on a branch, preview them locally, and merge through a pull request.
 
+## Search, sharing and crawlers
+
+- `scripts/sync_site_meta.py` writes the canonical, Open Graph / Twitter and icon tags in each page's `<head>` (between the `meta:start` and `meta:end` comments), a plain-HTML copy of the menu and contact line inside `<noscript>` in the `#site-nav` and `#site-footer` placeholders (for crawlers that do not run JavaScript), and `sitemap.xml`. Run `python3 scripts/sync_site_meta.py` after adding, renaming or retitling a page or changing the menu; each page needs its own `<title>` and `<meta name="description">` (under about 160 characters). If you change the menu, edit `NAV` in that script as well as the navigation block in `assets/site.js`.
+- Structured data (JSON-LD) is in `index.html` (Organization and WebSite) and in the annual meeting pages (Event). Add an Event block when creating a new annual meeting page.
+- `robots.txt` allows search engines and AI crawlers; `llms.txt` is a short summary for AI assistants (update it when pages or events change); `404.html` is the not-found page (it uses `window.SSCI_ROOT = "/"` so links work at any path); `assets/og-image.jpg` is the 1200x630 sharing image.
+
 ## Preview locally
 
 The simplest way is to double-click `index.html` (or open it in a browser). The shared header, navigation and footer are added by JavaScript and work fine from `file://`, so no server or install is needed.
@@ -41,5 +47,8 @@ python3 -m http.server 8000
 - Do not commit `.bak`, `.txt`, `.mp3` or `.mp4` files (they are in `.gitignore`).
 - `SSCI-website-content.md` is a plain-text copy of the site text and `code_collector.py` is a helper script. Neither is part of the published pages. Do not treat them as the source of truth for content.
 - Keep text in English. Contact email is office@ssci-combustion.org.
+- Each page has exactly one `<h1>` (the page title, first element in `<main>`); sections below it use `<h2>`, `<h3>`. Give every `<img>` a meaningful `alt`, and use `rel="noopener"` on links that open in a new tab (`target="_blank"`). Content images get `loading="lazy"`.
+- Image sizes: speaker and board photos are JPEG, at most 800 px on the longest side (a few tens of KB); logos at most about 900 px wide. Never commit full-size camera or design exports (one 38 MB photo once slowed a page to a crawl). Compress large PDFs before adding them (aim for under 2 MB).
+- Do not put anything in this repository that should not be public. The repository is public (required for free GitHub Pages) and the full git history is public too: no attendee lists, payment details, personal data or passwords. Word files carry the editor's name in their metadata.
 - Headings use Title Case (capitalise every main word; keep short words such as a, the, and, of, in, to, for, with in lower case), for example "Membership Fees and Period". Talk titles keep the speaker's original wording.
 - Before finishing a change, check that every link and image you touched resolves, and that pages in `annuals/` still load their assets.

@@ -107,12 +107,14 @@ a:focus-visible, button:focus-visible {
 }
 
 /* First heading on every inner page is the page title */
+.content-wrapper > h1:first-child,
 .content-wrapper > h2:first-child {
     margin-top: 0;
     font-size: 2.3rem;
     padding-bottom: 0.45em;
     position: relative;
 }
+.content-wrapper > h1:first-child::after,
 .content-wrapper > h2:first-child::after {
     content: "";
     display: block;
@@ -131,6 +133,26 @@ a:focus-visible, button:focus-visible {
 }
 
 .center-text { text-align: center; }
+
+/* ---------- Skip link and no-JavaScript fallback ---------- */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    z-index: 2000;
+    background: #fff;
+    color: var(--primary-dark);
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    font-weight: 600;
+}
+.skip-link:focus { left: 12px; }
+/* Only used when JavaScript is off: assets/site.js replaces these with the real menu and footer */
+#site-nav nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 14px 24px; background: var(--primary-soft); }
+#site-nav nav li { margin: 0; }
+#site-footer footer { padding: 24px; background: #2a1620; color: #fff; text-align: center; }
+#site-footer footer a { color: #fff; }
 
 /* ---------- Site header and navigation ---------- */
 #site-header {
@@ -695,6 +717,7 @@ a:focus-visible, button:focus-visible {
     h2 { font-size: 1.6rem; }
     h3 { font-size: 1.25rem; }
     .content-wrapper { padding: 28px 18px 16px 18px; }
+    .content-wrapper > h1:first-child,
     .content-wrapper > h2:first-child { font-size: 1.9rem; }
     .home-section { padding: 40px 18px 0 18px; }
     .feature-card .feature-main, .feature-card .feature-side { padding: 24px 20px; }
