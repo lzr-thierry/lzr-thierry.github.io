@@ -39,6 +39,6 @@ python3 -m http.server 8000
 - Link to documents with the exact file name, including case. GitHub Pages is case sensitive.
 - Do not commit `.bak`, `.txt`, `.mp3` or `.mp4` files (they are in `.gitignore`).
 - `SSCI-website-content.md` is a plain-text copy of the site text and `code_collector.py` is a helper script. Neither is part of the published pages. Do not treat them as the source of truth for content.
-- Keep text in English. Contact email is ssci.combustion@gmail.com.
+- Keep text in English. Contact email is office@ssci-combustion.org.
 - Headings use Title Case (capitalise every main word; keep short words such as a, the, and, of, in, to, for, with in lower case), for example "Membership Fees and Period". Talk titles keep the speaker's original wording.
 - Before finishing a change, check that every link and image you touched resolves, and that pages in `annuals/` still load their assets.
