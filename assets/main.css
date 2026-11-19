@@ -305,7 +305,7 @@ a:focus-visible, button:focus-visible {
     position: relative;
     color: #fff;
     background:
-        linear-gradient(105deg, rgba(76, 28, 50, 0.93) 0%, rgba(129, 60, 84, 0.82) 55%, rgba(129, 60, 84, 0.55) 100%),
+        linear-gradient(90deg, rgba(140, 30, 68, 0.96) 0%, rgba(170, 44, 86, 0.88) 38%, rgba(176, 50, 92, 0.38) 72%, rgba(176, 50, 92, 0.08) 100%),
         url('singapore_p3.jpg') center bottom / cover no-repeat;
 }
 .hero-inner {
@@ -429,7 +429,7 @@ a:focus-visible, button:focus-visible {
 
 .cta-band {
     margin-top: 72px;
-    background: linear-gradient(105deg, var(--primary-dark), var(--primary-color));
+    background: linear-gradient(105deg, #8c1e47, #b0325c);
     color: #fff;
     text-align: center;
     padding: 56px 24px;
@@ -578,6 +578,11 @@ a:focus-visible, button:focus-visible {
 }
 
 @media (max-width: 820px) {
+    .hero {
+        background:
+            linear-gradient(180deg, rgba(140, 30, 68, 0.94) 0%, rgba(170, 44, 86, 0.86) 60%, rgba(176, 50, 92, 0.62) 100%),
+            url('singapore_p3.jpg') center bottom / cover no-repeat;
+    }
     .hero-inner { padding: 56px 20px 64px 20px; }
     .hero h1 { font-size: 2.2rem; }
     .hero p.lead { font-size: 1.05rem; }
