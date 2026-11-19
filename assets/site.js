@@ -66,7 +66,7 @@
         <header class="site-header">
             <div class="site-header-inner">
                 <a class="brand" href="${root}index.html">
-                    <img src="${root}assets/SSCI-logo.png" alt="SSCI logo">
+                    <img src="${root}assets/SSCI-icon.png" alt="SSCI logo">
                     <span class="brand-text">
                         <strong>SSCI</strong>
                         <span>Singapore Section of the Combustion Institute</span>
