@@ -23,6 +23,7 @@
     const navItems = [
         { label: "Home", href: "index.html", page: "home" },
         { label: "About", href: "about.html", page: "about" },
+        { label: "Membership", href: "membership.html", page: "membership" },
         {
             label: "Events",
             href: "annual-meetings.html",
@@ -33,7 +34,6 @@
                 { label: "Other Events", href: "events.html" }
             ]
         },
-        { label: "Membership", href: "membership.html", page: "membership" },
         {
             label: "Award",
             href: "young-investigator-award.html",
