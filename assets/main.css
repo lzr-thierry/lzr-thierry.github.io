@@ -31,7 +31,7 @@
     --shadow-sm: 0 1px 3px rgba(40, 20, 30, 0.06);
     --shadow-md: 0 8px 24px rgba(40, 20, 30, 0.10);
     --page-width: 1080px;
-    --header-height: 68px;
+    --header-height: 76px;
 
     --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -166,7 +166,7 @@ a:focus-visible, button:focus-visible {
     color: var(--primary-dark);
     flex-shrink: 0;
 }
-.brand img { height: 44px; width: auto; display: block; }
+.brand img { height: 56px; width: auto; display: block; }
 .brand-text { position: relative; top: 1px; /* optical alignment with the flame logo */ font-size: 1.05rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--primary-dark); }
 .brand-abbr { font-weight: 500; color: var(--text-muted); margin-left: 2px; }
 .brand-short { display: none; font-size: 1.15rem; letter-spacing: 0.02em; }
@@ -614,7 +614,9 @@ a:focus-visible, button:focus-visible {
     .home-section { padding: 40px 18px 0 18px; }
     .feature-card .feature-main, .feature-card .feature-side { padding: 24px 20px; }
     .event-card, .upcoming-event-item, .event-item { padding: 18px 18px; }
+    :root { --header-height: 68px; }
     .site-header-inner { padding: 0 16px; }
+    .brand img { height: 46px; }
     .board-member { width: 100%; max-width: 300px; }
 }
 
