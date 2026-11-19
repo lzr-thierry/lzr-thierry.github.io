@@ -167,7 +167,7 @@ a:focus-visible, button:focus-visible {
     flex-shrink: 0;
 }
 .brand img { height: 44px; width: auto; display: block; }
-.brand-text { font-size: 1.05rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--primary-dark); }
+.brand-text { position: relative; top: 1px; /* optical alignment with the flame logo */ font-size: 1.05rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; color: var(--primary-dark); }
 .brand-abbr { font-weight: 500; color: var(--text-muted); margin-left: 2px; }
 .brand-short { display: none; font-size: 1.15rem; letter-spacing: 0.02em; }
 
