@@ -34,7 +34,15 @@
             ]
         },
         { label: "Membership", href: "membership.html", page: "membership" },
-        { label: "Award", href: "young-investigator-award.html", page: "award" },
+        {
+            label: "Award",
+            href: "young-investigator-award.html",
+            page: "award",
+            children: [
+                { label: "Young Investigator Award", href: "young-investigator-award.html" },
+                { label: "Best Presentation and Poster Awards", href: "best-presentation-awards.html" }
+            ]
+        },
         { label: "Collaboration", href: "collaboration.html", page: "collaboration" },
         { label: "Contact", href: "contacts.html", page: "contacts" }
     ];
@@ -170,7 +178,7 @@
         currentPage = "events";
     } else if (path.includes("membership.html")) {
         currentPage = "membership";
-    } else if (path.includes("young-investigator-award.html")) {
+    } else if (path.includes("young-investigator-award.html") || path.includes("best-presentation-awards.html")) {
         currentPage = "award";
     } else if (path.includes("collaboration.html")) {
         currentPage = "collaboration";
