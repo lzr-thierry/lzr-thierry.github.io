@@ -23,11 +23,13 @@ It is plain static HTML, CSS and JavaScript. There is no build step, no package 
 
 ## Preview locally
 
+The simplest way is to double-click `index.html` (or open it in a browser). The shared header, navigation and footer are added by JavaScript and work fine from `file://`, so no server or install is needed.
+
+If a local server is preferred, run this and open http://localhost:8000:
+
 ```bash
 python3 -m http.server 8000
 ```
-
-Then open http://localhost:8000. Opening the files directly with `file://` will not work correctly because of the `<base>` tag and the injected header.
 
 ## Conventions for edits
 
