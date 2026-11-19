@@ -35,10 +35,10 @@ EMAIL = "office@ssci-combustion.org"
 NAV = [
     ("Home", "index.html"),
     ("About", "about.html"),
+    ("Membership", "membership.html"),
     ("Annual Meetings", "annual-meetings.html"),
     ("Webinars", "webinars.html"),
     ("Other Events", "events.html"),
-    ("Membership", "membership.html"),
     ("Young Investigator Award", "young-investigator-award.html"),
     ("Best Presentation and Poster Awards", "best-presentation-awards.html"),
     ("Collaboration", "collaboration.html"),
