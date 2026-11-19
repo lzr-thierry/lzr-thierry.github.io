@@ -458,8 +458,12 @@ a:focus-visible, button:focus-visible {
 .cta-band p { color: rgba(255, 255, 255, 0.9); max-width: 620px; margin: 0 auto 24px auto; }
 .cta-band .hero-actions { justify-content: center; }
 
-/* ---------- Home page: latest CI news ---------- */
-.news-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+/* ---------- Home page: latest CI news and events ---------- */
+.news-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+.news-columns > div[hidden] { display: none; }
+.news-columns:has(> div[hidden]) { grid-template-columns: 1fr; }
+.news-columns h3 { margin: 0 0 12px 0; font-size: 1.1rem; padding-bottom: 0; border: 0; }
+.news-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr; gap: 12px; }
 .news-list li { margin: 0; }
 .news-list a {
     display: flex;
@@ -481,7 +485,7 @@ a:focus-visible, button:focus-visible {
 .news-list a:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--primary-line); color: var(--primary-dark); }
 .news-list .arrow { flex-shrink: 0; color: var(--primary-color); font-weight: 700; }
 .news-meta { margin: 14px 0 0 0; font-size: 0.85rem; color: var(--text-muted); }
-@media (max-width: 700px) { .news-list { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .news-columns { grid-template-columns: 1fr; } }
 
 /* ---------- Event cards (Events, Annual Meetings, Webinars) ---------- */
 .event-page-intro { max-width: 800px; color: var(--text-muted); margin: 0 0 26px 0; line-height: 1.7; }

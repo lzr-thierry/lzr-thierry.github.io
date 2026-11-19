@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Fetch the "Latest News" list from The Combustion Institute homepage.
+"""Fetch the "Latest News" and "Upcoming Events" lists from The Combustion Institute homepage.
 
-Writes data/ci-news.js, which the SSCI home page reads to show "Latest News from CI".
+Writes data/ci-news.js, which the SSCI home page reads to show "Latest News and Events from CI".
 Run automatically every day by .github/workflows/static.yml, or by hand:
 
     python3 scripts/fetch_ci_news.py
 
-The CI homepage list has no dates and is maintained by CI newest first, so the
-first MAX_ITEMS entries are used. If the page cannot be fetched or no news items
+The CI homepage lists have no dates and are maintained by CI, so the first MAX_ITEMS
+entries of each list are used. SSCI's own events are skipped in the events list because
+the home page already shows them in the "Latest Event from SSCI" block. If the page cannot be fetched or no news items
 are found, the existing data/ci-news.js is left unchanged and the script exits
 with an error (the workflow ignores that and keeps the previous list).
 
@@ -24,8 +25,11 @@ from pathlib import Path
 
 SOURCE_URL = "https://www.combustioninstitute.org/index.php"
 ARCHIVE_URL = "https://members.combustioninstitute.org/news_archive_headlines.php?org_id=CMBI"
+CALENDAR_URL = "https://members.combustioninstitute.org/members/calendar6c_responsive.php?org_id=CMBI"
 ALLOWED_DOMAIN = "combustioninstitute.org"
 MAX_ITEMS = 6
+# Entries in the CI events list whose title contains one of these (case-insensitive) are skipped.
+EXCLUDE_EVENT_TITLES = ("singapore section of the combustion institute",)
 OUT_FILE = Path(__file__).resolve().parent.parent / "data" / "ci-news.js"
 
 
@@ -62,14 +66,14 @@ def is_allowed(url):
     return p.scheme == "https" and (host == ALLOWED_DOMAIN or host.endswith("." + ALLOWED_DOMAIN))
 
 
-def parse_news(page_html):
-    m = re.search(r"<h3>\s*Latest News\s*</h3>", page_html, re.I)
+def parse_list(page_html, heading):
+    """Return [{"title", "url"}] for the first <ul> after an <h3> with the given heading."""
+    m = re.search(r"<h3>\s*" + re.escape(heading) + r"\s*</h3>", page_html, re.I)
     if not m:
-        raise ValueError("'Latest News' heading not found; the CI page layout may have changed")
-    rest = page_html[m.end():]
-    ul = re.search(r"<ul>.*?</ul>", rest, re.S | re.I)
+        raise ValueError("'%s' heading not found; the CI page layout may have changed" % heading)
+    ul = re.search(r"<ul>.*?</ul>", page_html[m.end():], re.S | re.I)
     if not ul:
-        raise ValueError("news list not found after the 'Latest News' heading")
+        raise ValueError("list not found after the '%s' heading" % heading)
     collector = AnchorCollector()
     collector.feed(ul.group(0))
     items, seen = [], set()
@@ -80,8 +84,18 @@ def parse_news(page_html):
         seen.add((text, url))
         items.append({"title": text[:200], "url": url})
     if not items:
-        raise ValueError("no news items found")
-    return items[:MAX_ITEMS]
+        raise ValueError("no items found under '%s'" % heading)
+    return items
+
+
+def parse_news(page_html):
+    return parse_list(page_html, "Latest News")[:MAX_ITEMS]
+
+
+def parse_events(page_html):
+    events = parse_list(page_html, "Upcoming Events")
+    kept = [e for e in events if not any(x in e["title"].lower() for x in EXCLUDE_EVENT_TITLES)]
+    return kept[:MAX_ITEMS]
 
 
 def main():
@@ -91,12 +105,19 @@ def main():
         req = urllib.request.Request(SOURCE_URL, headers={"User-Agent": "Mozilla/5.0 (compatible; SSCI-website-news-feed)"})
         with urllib.request.urlopen(req, timeout=30) as resp:
             page = resp.read().decode("utf-8", errors="ignore")
-    items = parse_news(page)
+    news = parse_news(page)
+    try:
+        events = parse_events(page)
+    except ValueError as exc:  # events are optional: the home page hides the column if there are none
+        print("events skipped:", exc, file=sys.stderr)
+        events = []
     data = {
         "updated": datetime.date.today().isoformat(),
         "source": SOURCE_URL,
         "archive": ARCHIVE_URL,
-        "items": items,
+        "calendar": CALENDAR_URL,
+        "news": news,
+        "events": events,
     }
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(
@@ -104,9 +125,10 @@ def main():
         "window.CI_NEWS = " + json.dumps(data, ensure_ascii=True, indent=2) + ";\n",
         encoding="utf-8",
     )
-    print(f"Wrote {len(items)} items to {OUT_FILE}")
-    for i in items:
-        print(" -", i["title"])
+    print(f"Wrote {len(news)} news and {len(events)} events to {OUT_FILE}")
+    for label, group in (("news", news), ("event", events)):
+        for i in group:
+            print(f" - [{label}] {i['title']}")
 
 
 if __name__ == "__main__":
