@@ -162,7 +162,7 @@
 
         function fill(items, listId, colId) {
             var list = document.getElementById(listId);
-            (items || []).slice(0, 4).forEach(function (item) {
+            (items || []).slice(0, 6).forEach(function (item) {
                 if (!item || typeof item.title !== "string" || !/^https:\/\//.test(item.url || "")) { return; }
                 var li = document.createElement("li");
                 var a = document.createElement("a");

@@ -28,6 +28,14 @@ window.CI_NEWS = {
     {
       "title": "2026 Recipients Silver Medal of The Combustion Institute",
       "url": "https://members.combustioninstitute.org/news_archive_headlines.php?org_id=CMBI&sniid=55049557"
+    },
+    {
+      "title": "Call for Nominations: 2027 Fellows of The Combustion Institute",
+      "url": "https://members.combustioninstitute.org/news_archive_headlines.php?org_id=CMBI&sniid=54753833"
+    },
+    {
+      "title": "2026 Recipients Bernard Lewis Fellowship",
+      "url": "https://combustioninstitute.org/news_manager.php?page=44743"
     }
   ],
   "events": [

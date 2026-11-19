@@ -27,7 +27,7 @@ SOURCE_URL = "https://www.combustioninstitute.org/index.php"
 ARCHIVE_URL = "https://members.combustioninstitute.org/news_archive_headlines.php?org_id=CMBI"
 CALENDAR_URL = "https://members.combustioninstitute.org/members/calendar6c_responsive.php?org_id=CMBI"
 ALLOWED_DOMAIN = "combustioninstitute.org"
-MAX_ITEMS = 6
+MAX_ITEMS = 8  # kept in the data file; the home page shows the first 6 of each list
 # Entries in the CI events list whose title contains one of these (case-insensitive) are skipped.
 EXCLUDE_EVENT_TITLES = ("singapore section of the combustion institute",)
 OUT_FILE = Path(__file__).resolve().parent.parent / "data" / "ci-news.js"
