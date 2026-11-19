@@ -8,7 +8,8 @@
     const isAnnualMeetingPage =
         window.location.pathname.includes("/annuals/");
 
-    const root = isAnnualMeetingPage ? "../" : "";
+    // Pages such as 404.html set window.SSCI_ROOT = "/" because they can be shown at any path
+    const root = window.SSCI_ROOT || (isAnnualMeetingPage ? "../" : "");
 
 
     // =========================================================
@@ -63,6 +64,7 @@
     // =========================================================
 
     const headerHTML = `
+        <a class="skip-link" href="#main-content">Skip to main content</a>
         <header class="site-header">
             <div class="site-header-inner">
                 <a class="brand" href="${root}index.html">
@@ -140,6 +142,12 @@
 
     if (footerTarget) {
         footerTarget.innerHTML = footerHTML;
+    }
+
+    // Target for the "Skip to main content" link
+    const mainEl = document.querySelector("main");
+    if (mainEl && !mainEl.id) {
+        mainEl.id = "main-content";
     }
 
 
