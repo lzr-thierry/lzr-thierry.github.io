@@ -114,7 +114,8 @@
                 <div>
                     <h4>Contact</h4>
                     <p><a href="mailto:office@ssci-combustion.org">office@ssci-combustion.org</a></p>
-                    <p><a href="${root}contacts.html">More contact details</a></p>
+                    <p><a href="https://www.linkedin.com/company/singapore-section-of-the-combustion-institute" target="_blank" rel="noopener">SSCI on LinkedIn</a></p>
+                    <p><a href="https://www.combustioninstitute.org/index.php" target="_blank" rel="noopener">The Combustion Institute</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
