@@ -149,10 +149,10 @@ a:focus-visible, button:focus-visible {
 }
 .skip-link:focus { left: 12px; }
 /* Only used when JavaScript is off: assets/site.js replaces these with the real menu and footer */
-#site-nav nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 14px 24px; background: var(--primary-soft); }
-#site-nav nav li { margin: 0; }
-#site-footer footer { padding: 24px; background: #2a1620; color: #fff; text-align: center; }
-#site-footer footer a { color: #fff; }
+#site-nav noscript nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; padding: 14px 24px; background: var(--primary-soft); }
+#site-nav noscript nav li { margin: 0; }
+#site-footer noscript footer { padding: 24px; background: #2a1620; color: #fff; text-align: center; }
+#site-footer noscript footer a { color: #fff; }
 
 /* ---------- Site header and navigation ---------- */
 #site-header {
