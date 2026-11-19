@@ -40,6 +40,7 @@ NAV = [
     ("Other Events", "events.html"),
     ("Membership", "membership.html"),
     ("Young Investigator Award", "young-investigator-award.html"),
+    ("Best Presentation and Poster Awards", "best-presentation-awards.html"),
     ("Collaboration", "collaboration.html"),
     ("Contact", "contacts.html"),
 ]

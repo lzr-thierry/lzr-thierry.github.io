@@ -5,7 +5,7 @@ It is plain static HTML, CSS and JavaScript. There is no build step, no package 
 
 ## How the site is put together
 
-- Every page is a hand-written `.html` file in the repository root (`index.html`, `about.html`, `events.html`, `annual-meetings.html`, `webinars.html`, `membership.html`, `young-investigator-award.html`, `collaboration.html`, `contacts.html`).
+- Every page is a hand-written `.html` file in the repository root (`index.html`, `about.html`, `events.html`, `annual-meetings.html`, `webinars.html`, `membership.html`, `young-investigator-award.html`, `best-presentation-awards.html`, `collaboration.html`, `contacts.html`).
 - Annual meeting pages live in `annuals/`, one pair per meeting (`Nth-ssci-annual-meeting.html` and `...-venue.html`).
 - `assets/site.js` injects the shared header, navigation bar and footer into the empty `<div id="site-header">`, `<div id="site-nav">` and `<div id="site-footer">` on every page. Do not copy the header, nav or footer into individual pages.
   - To add, remove or rename a menu item, edit the navigation block in `assets/site.js`.
