@@ -112,12 +112,23 @@
                 </div>
 
                 <div>
-                    <h4>Explore</h4>
+                    <h4>About</h4>
                     <ul class="footer-links">
-                        <li><a href="${root}about.html">About</a></li>
-                        <li><a href="${root}annual-meetings.html">Annual Meetings</a></li>
+                        <li><a href="${root}about.html">About the SSCI</a></li>
                         <li><a href="${root}membership.html">Membership</a></li>
+                        <li><a href="${root}collaboration.html">Collaboration</a></li>
+                        <li><a href="${root}contacts.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4>Events and Awards</h4>
+                    <ul class="footer-links">
+                        <li><a href="${root}annual-meetings.html">Annual Meetings</a></li>
+                        <li><a href="${root}webinars.html">Webinars</a></li>
+                        <li><a href="${root}events.html">Other Events</a></li>
                         <li><a href="${root}young-investigator-award.html">Young Investigator Award</a></li>
+                        <li><a href="${root}best-presentation-awards.html">Best Presentation and Poster Awards</a></li>
                     </ul>
                 </div>
 
