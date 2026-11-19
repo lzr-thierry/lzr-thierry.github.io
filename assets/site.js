@@ -68,8 +68,8 @@
                 <a class="brand" href="${root}index.html">
                     <img src="${root}assets/SSCI-icon.png" alt="SSCI logo">
                     <span class="brand-text">
-                        <strong>SSCI</strong>
-                        <span>Singapore Section of the Combustion Institute</span>
+                        <span class="brand-full">Singapore Section of the Combustion Institute <span class="brand-abbr">(SSCI)</span></span>
+                        <span class="brand-short">SSCI</span>
                     </span>
                 </a>
 
