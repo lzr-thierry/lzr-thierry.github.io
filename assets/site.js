@@ -118,6 +118,7 @@
                         <li><a href="${root}annual-meetings.html">Annual Meetings</a></li>
                         <li><a href="${root}membership.html">Membership</a></li>
                         <li><a href="${root}young-investigator-award.html">Young Investigator Award</a></li>
+                        <li><a href="${root}best-presentation-awards.html">Best Presentation and Poster Awards</a></li>
                     </ul>
                 </div>
 
