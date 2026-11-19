@@ -303,10 +303,10 @@ a:focus-visible, button:focus-visible {
 /* ---------- Home page ---------- */
 .hero {
     position: relative;
-    background-color: #b83a64;
-    /* Vivid rose tint blended into the skyline photo (photo stays bright) */
+    background-color: #e06a8f;
+    /* Light rose tint blended into the skyline photo (keeps the photo bright) */
     background-image:
-        linear-gradient(120deg, #8d2650 0%, #b83a64 60%, #d4577a 100%),
+        linear-gradient(120deg, #c85a80 0%, #ee7fa0 55%, #ffa6bf 100%),
         url('singapore_p3.jpg');
     background-size: cover;
     background-position: center, center bottom;
@@ -314,16 +314,16 @@ a:focus-visible, button:focus-visible {
     background-blend-mode: soft-light, normal;
 }
 .hero-inner {
-    max-width: var(--page-width);
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 56px 24px 64px 24px;
+    padding: 56px 48px 64px 24px;
 }
 /* Text sits on a frosted rose panel (right side) so it stays readable over the photo
    and the Marina Bay Sands on the left stays visible */
 .hero-panel {
-    max-width: 640px;
+    max-width: 560px;
     margin-left: auto;
-    padding: 34px 40px 36px 40px;
+    padding: 32px 36px 34px 36px;
     border-radius: 22px;
     background: rgba(110, 16, 54, 0.80);
     border: 1px solid rgba(255, 255, 255, 0.22);
@@ -336,17 +336,9 @@ a:focus-visible, button:focus-visible {
         backdrop-filter: blur(12px) saturate(1.15);
     }
 }
-.hero .eyebrow {
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.88);
-    margin-bottom: 12px;
-}
 .hero h1 {
     color: #fff;
-    font-size: 2.9rem;
+    font-size: 2.6rem;
     font-weight: 800;
     line-height: 1.12;
     margin: 0 0 18px 0;
@@ -356,7 +348,7 @@ a:focus-visible, button:focus-visible {
     color: rgba(255, 255, 255, 0.94);
     margin-bottom: 26px;
 }
-.hero .eyebrow, .hero h1, .hero p.lead {
+.hero h1, .hero p.lead {
     text-shadow: 0 1px 8px rgba(70, 8, 36, 0.35);
 }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
