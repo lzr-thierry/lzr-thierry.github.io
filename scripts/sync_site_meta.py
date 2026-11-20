@@ -46,11 +46,16 @@ NAV = [
 ]
 
 # Pages that are not listed in the sitemap or given canonical/social tags.
+# Search engine verification files (google*.html) must stay exactly as issued, so they are skipped too.
 SKIP = {"404.html"}
 
 
+def is_skipped(path):
+    return path.name in SKIP or (path.name.startswith("google") and path.name.endswith(".html"))
+
+
 def pages():
-    found = sorted((p for p in ROOT.glob("*.html") if p.name not in SKIP), key=lambda p: (p.name != "index.html", p.name))
+    found = sorted((p for p in ROOT.glob("*.html") if not is_skipped(p)), key=lambda p: (p.name != "index.html", p.name))
     found += sorted(p for p in (ROOT / "annuals").glob("*.html"))
     return found
 

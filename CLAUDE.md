@@ -25,6 +25,7 @@ It is plain static HTML, CSS and JavaScript. There is no build step, no package 
 ## Search, sharing and crawlers
 
 - `scripts/sync_site_meta.py` writes the canonical, Open Graph / Twitter and icon tags in each page's `<head>` (between the `meta:start` and `meta:end` comments), a plain-HTML copy of the menu and contact line inside `<noscript>` in the `#site-nav` and `#site-footer` placeholders (for crawlers that do not run JavaScript), and `sitemap.xml`. Run `python3 scripts/sync_site_meta.py` after adding, renaming or retitling a page or changing the menu; each page needs its own `<title>` and `<meta name="description">` (under about 160 characters). If you change the menu, edit `NAV` in that script as well as the navigation block in `assets/site.js`.
+- `googlee442bc44ff228f47.html` in the repository root is Google Search Console's ownership verification file. Never delete or edit it (removing it drops the verification). The sync script skips files named `google*.html`; add any other search engine verification file the same way.
 - Structured data (JSON-LD) is in `index.html` (Organization and WebSite) and in the annual meeting pages (Event). Add an Event block when creating a new annual meeting page.
 - `robots.txt` allows search engines and AI crawlers; `llms.txt` is a short summary for AI assistants (update it when pages or events change); `404.html` is the not-found page (it uses `window.SSCI_ROOT = "/"` so links work at any path); `assets/og-image.jpg` is the 1200x630 sharing image.
 
