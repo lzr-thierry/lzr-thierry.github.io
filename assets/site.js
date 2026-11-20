@@ -229,4 +229,22 @@
         });
     }
 
+    // =========================================================
+    // 8. Protected email addresses
+    //    Elements like <span data-email-user="chair" data-email-domain="ssci-combustion"
+    //    data-email-tld="org"></span> become a mailto link here, so the full address is not in the page
+    //    source (this keeps it away from simple spam crawlers).
+    // =========================================================
+
+    document.querySelectorAll("[data-email-user]").forEach(function (el) {
+        const address = el.dataset.emailUser + "@" + el.dataset.emailDomain + "." + el.dataset.emailTld;
+        const link = document.createElement("a");
+        link.href = "mailto:" + address;
+        link.textContent = address;
+        el.replaceWith(link);
+        // The no-JavaScript text next to it is not needed once the link exists
+        const fallback = link.parentElement && link.parentElement.querySelector("noscript");
+        if (fallback) { fallback.remove(); }
+    });
+
 })();

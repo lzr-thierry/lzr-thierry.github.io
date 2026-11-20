@@ -544,6 +544,8 @@ a:focus-visible, button:focus-visible {
 .board-member h4 { margin: 0.5em 0 0.3em 0; font-size: 1.1rem; }
 .board-member p { margin: 0; font-size: 0.93rem; color: var(--text-muted); line-height: 1.5; }
 .board-member p strong { color: var(--primary-color); }
+.board-member .board-email { margin-top: 6px; font-size: 0.85rem; word-break: break-word; }
+.board-member .board-email a { text-decoration: underline; text-underline-offset: 3px; }
 .year-subtitle { color: var(--text-muted); font-weight: 500; margin: 1em 0 0 0; }
 
 /* ---------- Award page: recipient cards ---------- */
