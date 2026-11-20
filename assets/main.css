@@ -643,12 +643,26 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 700px) { .winner-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Contact and notes ---------- */
+/* Used by the Collaboration page */
 .contact-info {
     background: var(--surface-alt);
     padding: 22px 26px;
     border-radius: var(--radius-sm);
     border-left: 4px solid var(--primary-color);
 }
+.contact-main { background: var(--primary-soft); border: 1px solid var(--primary-line); border-radius: var(--radius); padding: 28px 32px; margin: 28px 0 24px 0; }
+.content-wrapper .contact-main > h2, .content-wrapper .contact-links > h2 { margin: 0 0 12px 0; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary-color); border: 0; padding: 0; }
+.contact-who { margin: 0 0 6px 0; color: var(--text-muted); }
+.contact-email { display: block; margin: 0 0 18px 0; font-size: 1.6rem; font-weight: 700; color: var(--primary-dark); text-decoration: none; overflow-wrap: anywhere; }
+.contact-email:hover { color: var(--primary-color); text-decoration: underline; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-links { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow-sm); }
+.contact-link { display: block; text-decoration: none; color: var(--text-color); }
+.contact-link-title { display: block; font-weight: 700; color: var(--primary-dark); }
+.contact-link-title::after { content: " \2197"; color: var(--primary-color); }
+.contact-link-desc { display: block; margin-top: 4px; color: var(--text-muted); font-size: 0.93rem; }
+.contact-link:hover .contact-link-title { text-decoration: underline; }
+@media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } .contact-main { padding: 22px 20px; } .contact-email { font-size: 1.25rem; } }
 
 /* ---------- Footer ---------- */
 .site-footer {
