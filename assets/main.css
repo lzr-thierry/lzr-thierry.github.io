@@ -601,6 +601,12 @@ a:focus-visible, button:focus-visible {
 
 /* ---------- Membership page ---------- */
 .content-wrapper section > h2 { font-size: 1.55rem; margin: 2.2em 0 0.7em 0; padding-bottom: 0.4em; border-bottom: 1px solid var(--primary-line); }
+.highlight-box { background: var(--primary-dark); color: #fff; border-radius: var(--radius); padding: 24px 28px; margin: 0 0 20px 0; }
+.highlight-box h3 { margin: 0 0 8px 0; color: #fff; font-size: 1.25rem; border: 0; padding: 0; }
+.highlight-box p { margin: 0 0 8px 0; color: rgba(255, 255, 255, 0.95); }
+.highlight-box p:last-child { margin-bottom: 0; }
+.highlight-box a { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.highlight-box a:hover { color: var(--primary-soft); }
 .benefit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 .benefit { background: #fff; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 22px 22px 18px; box-shadow: var(--shadow-sm); }
 .benefit h3 { margin: 0 0 8px 0; font-size: 1.1rem; border: 0; padding: 0; }
@@ -652,6 +658,8 @@ a:focus-visible, button:focus-visible {
 }
 .contact-main { background: var(--primary-soft); border: 1px solid var(--primary-line); border-radius: var(--radius); padding: 28px 32px; margin: 28px 0 24px 0; }
 .content-wrapper .contact-main > h2, .content-wrapper .contact-links > h2 { margin: 0 0 12px 0; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary-color); border: 0; padding: 0; }
+.contact-items { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.contact-item .contact-who { font-weight: 600; color: var(--primary-dark); }
 .contact-who { margin: 0 0 6px 0; color: var(--text-muted); }
 .contact-email { display: block; margin: 0 0 18px 0; font-size: 1.6rem; font-weight: 700; color: var(--primary-dark); text-decoration: none; overflow-wrap: anywhere; }
 .contact-email:hover { color: var(--primary-color); text-decoration: underline; }
@@ -662,7 +670,7 @@ a:focus-visible, button:focus-visible {
 .contact-link-title::after { content: " \2197"; color: var(--primary-color); }
 .contact-link-desc { display: block; margin-top: 4px; color: var(--text-muted); font-size: 0.93rem; }
 .contact-link:hover .contact-link-title { text-decoration: underline; }
-@media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } .contact-main { padding: 22px 20px; } .contact-email { font-size: 1.25rem; } }
+@media (max-width: 700px) { .contact-items { grid-template-columns: 1fr; gap: 22px; } .contact-grid { grid-template-columns: 1fr; } .contact-main { padding: 22px 20px; } .contact-email { font-size: 1.25rem; } }
 
 /* ---------- Footer ---------- */
 .site-footer {
