@@ -241,6 +241,7 @@
         const link = document.createElement("a");
         link.href = "mailto:" + address;
         link.textContent = address;
+        if (el.dataset.emailClass) { link.className = el.dataset.emailClass; }
         el.replaceWith(link);
         // The no-JavaScript text next to it is not needed once the link exists
         const fallback = link.parentElement && link.parentElement.querySelector("noscript");
